@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Шесть · Жрец Домена жизни · Квента персонажа</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #d9e0c5;
+            background-image: radial-gradient(circle at 20% 30%, rgba(120, 100, 70, 0.05) 2%, transparent 2.5%);
+            background-size: 32px 32px;
+            font-family: 'Inter', sans-serif;
+            color: #2c3e2b;
+            line-height: 1.55;
+            padding: 2rem 1.5rem;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .dossier {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(60, 80, 40, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            border: 1px solid #c8d5b5;
+        }
+        .header {
+            background: #f0f5e8;
+            padding: 1.8rem 2rem 1.2rem 2rem;
+            border-bottom: 2px solid #bdd8a8;
+            position: relative;
+        }
+        .symbol-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            color: #8aa87d;
+            letter-spacing: 4px;
+            font-family: monospace;
+            margin-bottom: 0.75rem;
+        }
+        h1 {
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #3d5e3a;
+            letter-spacing: -0.5px;
+        }
+        .sub {
+            color: #6b8c63;
+            font-size: 0.85rem;
+            border-left: 3px solid #9bbe8a;
+            padding-left: 1rem;
+            margin-top: 0.4rem;
+        }
+        .header-buttons {
+            position: absolute;
+            top: 1.8rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.8rem;
+        }
+        .lang-btn {
+            background: #e0ecd6;
+            border: 1px solid #9bbe8a;
+            color: #3d5e3a;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        .lang-btn:hover { background: #cde2be; color: #2c4a28; transform: scale(1.02); }
+        .info-panel {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem 2rem 0.8rem 2rem;
+            border-bottom: 1px solid #dde8d0;
+        }
+        .avatar {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .symbol-circle {
+            width: 130px;
+            height: 130px;
+            background: #f0f5e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #bdd8a8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .symbol-circle i { font-size: 3.8rem; color: #8aa87d; }
+        .badge {
+            background: #f0f5e8;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: #4b6e46;
+            border: 1px solid #cde0be;
+        }
+        .traits {
+            flex: 2.5;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.8rem 1.5rem;
+        }
+        .trait-item {
+            border-bottom: 1px solid #e0e8d4;
+            padding-bottom: 0.4rem;
+        }
+        .trait-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8aa87d;
+            font-weight: 500;
+        }
+        .trait-value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #3d5e3a;
+            margin-top: 0.2rem;
+        }
+        .content { padding: 1.2rem 2rem 2rem 2rem; }
+        .section { margin-bottom: 2.2rem; }
+        .section-title {
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #6b8c63;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #d4e2c4;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        .section-title i { font-size: 1.4rem; color: #9bbe8a; }
+        .section-text {
+            color: #3d5e3a;
+            text-align: justify;
+            margin-bottom: 0.75rem;
+        }
+        .history-chapter { margin-bottom: 1.5rem; }
+        .history-title {
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #7a9c6e;
+            margin: 1rem 0 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .history-title i { font-size: 1.1rem; color: #9bbe8a; }
+        .chapter-image-left {
+            float: left;
+            width: 200px;
+            margin: 0 1.2rem 0.8rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background: #f0f5e8;
+            border: 1px solid #cde0be;
+            transition: all 0.3s ease;
+        }
+        .hover-zoom {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-zoom:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(60, 80, 40, 0.12), 0 0 0 2px rgba(155, 190, 138, 0.3);
+        }
+        .chapter-image-left img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-caption {
+            font-size: 0.65rem;
+            color: #8aa87d;
+            text-align: center;
+            padding: 0.4rem;
+            background: #f8fbf4;
+            border-top: 1px solid #dde8d0;
+            font-style: italic;
+        }
+        .clear-float { clear: both; }
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #d4e2c4, transparent);
+            margin: 1rem 0;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #9bbc8a;
+            border-top: 1px solid #e0e8d4;
+            padding: 1.2rem;
+            background: #f8fbf4;
+        }
+        .fade-item {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .section-title, .history-title {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        .section-title { animation-delay: 0s; }
+        .history-title { animation-delay: 0.02s; }
+        @media (max-width: 600px) {
+            .chapter-image-left { float: none; width: 100%; max-width: 280px; margin: 0 auto 1rem auto; }
+            .header-buttons { position: static; margin-top: 1rem; justify-content: center; }
+            .header { display: flex; flex-direction: column; gap: 0.5rem; }
+        }
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .info-panel, .content { padding-left: 1.2rem; padding-right: 1.2rem; }
+            .section-title { font-size: 1.4rem; }
+            .history-title { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="dossier">
+        <div class="header">
+            <div class="symbol-line">
+                <i class="fas fa-pray"></i> <span>✧ ☾ ✧</span> <i class="fas fa-moon"></i>
+            </div>
+            <h1 id="mainTitle">Шесть</h1>
+            <div class="sub" id="mainSub">Жрец Домена жизни · Зверолюд-заяц · «Святая Дюжина»</div>
+            <div class="header-buttons">
+                <button class="lang-btn" id="langBtn"><i class="fas fa-globe"></i> English</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="avatar">
+                <div class="symbol-circle"><i class="fas fa-rabbit"></i></div>
+                <div class="badge"><i class="fas fa-heartbeat"></i> <span id="badge1">Домен жизни · Целитель</span></div>
+                <div class="badge"><i class="fas fa-dice-d10"></i> <span id="badge2">Весна жизни · Тругиль</span></div>
+            </div>
+            <div class="traits">
+                <div class="trait-item fade-item"><div class="trait-label" id="label1">Класс / Раса</div><div class="trait-value" id="val1">Жрец (Домен жизни) · Зверолюд-заяц</div></div>
+                <div class="trait-item fade-item"><div class="trait-label" id="label2">Предыстория / Мировоззрение</div><div class="trait-value" id="val2">Награждённый · Нейтральное</div></div>
+                <div class="trait-item fade-item"><div class="trait-label" id="label3">Черты характера</div><div class="trait-value" id="val3">Тихий характер</div></div>
+                <div class="trait-item fade-item"><div class="trait-label" id="label4">Идеалы</div><div class="trait-value" id="val4">Жизнь</div></div>
+                <div class="trait-item fade-item"><div class="trait-label" id="label5">Привязанности</div><div class="trait-value" id="val5">Оставшиеся вера</div></div>
+                <div class="trait-item fade-item"><div class="trait-label" id="label6">Слабости</div><div class="trait-value" id="val6">Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую</div></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="section-title"><i class="fas fa-book-open"></i><span id="historyTitle">История Шесть</span></div>
+                
+                <div class="history-chapter">
+                    <div class="history-title"><i class="fas fa-leaf"></i><span id="ch1Title">Глава первая: Новое начало</span></div>
+                    <div class="chapter-image-left fade-item hover-zoom">
+                        <img src="placeholder_six_ch1.jpg" alt="Рыжие леса Тругиля" id="ch1Img">
+                        <div class="image-caption" id="caption1">✦ Рыжие леса Тругиля — место, где собираются множество разных народов ✦</div>
+                    </div>
+                    <div class="section-text fade-item" id="ch1Text1">Место где собираются множество разных народов и деревень, рыжие леса Тругиля, одно из немногих поселений в данных лесах расположилось неподалеку от озера питающая весь лес своими водами и красой, в основу малого народа вошли несколько рас зверолюдов, что смогли ужиться вместе с друг другом и одной из них были Зайцы, Черепахи и Суслики. Необычная связь Племени образовала необычный ход жизни этого места, где одни занимались земледелием, другие охотой и последние рыболовным хозяйством. Так и прошло несколько поколений тихой и необычного места, не без своих инцидентов, что решались советом вождей, где главенствующее слово держалось за вождём зайцев, так как их было просто больше и те охватывали большую территорию работ и ответственности.</div>
+                    <div class="section-text fade-item" id="ch1Text2">В столь тихой деревушки была рождена новая надежда рода, сильная, большая, выносливая и много обещающая дочь, которая была гордостью всего племени, как и её сёстры и братья. Прекрасная пора когда и от других вождей так же появились наследники и каждый день превратились в игры, радость и безмятежность. Через игры и веселье появились так называемые команды с каждой расы, где команда зайцев назвали себя "Святая Дюжина", суслики "Удачная шестёрка", а черепахи "Три кита". Судьба благоволила каждой из команд в той или ной части жизни, создавая испытания для каждой.</div>
+                    <div class="section-text fade-item" id="ch1Text3">Имея в команде Дюжин большинство родственников, главная зайчиха заняла место под номером Шесть, показывая другим командам что высшее число не признак главенства, от чего за ней и закрепилось её прозвище "Шестая" или же "Шесть", но дальше игр пока что это не уходило. И вот достигался возраст совершеннолетия, момент когда все начали искать себе пару, а некоторые уже даже и нашли, конечно же было и не без кровосмешения, только вот найти достойного партнёра для "Шестой" так и не увенчивалось успехом, она явно отличалась от других, она была больше, была как таковой любимицей за которой стоял Вождь, и даже другие Вожди не желали отдавать той своих сыновей. Зайчиха не получившая должного внимания другого пола большую часть времени была занята изучением медициной и становлением последователем бога Светоносной Лучиты.</div>
+                    <div class="clear-float"></div>
+                </div>
+            </div>
+            
+            <hr>
+            <div class="section-text fade-item" style="font-size:0.85rem; color:#7a9c6e;"><i class="fas fa-comment-dots"></i> <span id="finalQuote">«Моё имя — Шесть. Когда-то меня так звали в играх. Теперь это единственное, что у меня осталось. Вместе с верой. Этого достаточно... пока что».</span></div>
+        </div>
+        <div class="footer-note"><i class="fas fa-scroll"></i> <span id="footerText">Квента персонажа · Шесть</span></div>
+    </div>
+</div>
+
+<script>
+    const translations = {
+        ru: {
+            mainSub: "Жрец Домена жизни · Зверолюд-заяц · «Святая Дюжина»",
+            badge1: "Домен жизни · Целитель",
+            badge2: "Весна жизни · Тругиль",
+            label1: "Класс / Раса", val1: "Жрец (Домен жизни) · Зверолюд-заяц",
+            label2: "Предыстория / Мировоззрение", val2: "Награждённый · Нейтральное",
+            label3: "Черты характера", val3: "Тихий характер",
+            label4: "Идеалы", val4: "Жизнь",
+            label5: "Привязанности", val5: "Оставшиеся вера",
+            label6: "Слабости", val6: "Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую",
+            historyTitle: "История Шесть",
+            ch1Title: "Глава первая: Новое начало",
+            caption1: "✦ Рыжие леса Тругиля — место, где собираются множество разных народов ✦",
+            ch1Text1: "Место где собираются множество разных народов и деревень, рыжие леса Тругиля, одно из немногих поселений в данных лесах расположилось неподалеку от озера питающая весь лес своими водами и красой, в основу малого народа вошли несколько рас зверолюдов, что смогли ужиться вместе с друг другом и одной из них были Зайцы, Черепахи и Суслики. Необычная связь Племени образовала необычный ход жизни этого места, где одни занимались земледелием, другие охотой и последние рыболовным хозяйством. Так и прошло несколько поколений тихой и необычного места, не без своих инцидентов, что решались советом вождей, где главенствующее слово держалось за вождём зайцев, так как их было просто больше и те охватывали большую территорию работ и ответственности.",
+            ch1Text2: "В столь тихой деревушки была рождена новая надежда рода, сильная, большая, выносливая и много обещающая дочь, которая была гордостью всего племени, как и её сёстры и братья. Прекрасная пора когда и от других вождей так же появились наследники и каждый день превратились в игры, радость и безмятежность. Через игры и веселье появились так называемые команды с каждой расы, где команда зайцев назвали себя \"Святая Дюжина\", суслики \"Удачная шестёрка\", а черепахи \"Три кита\". Судьба благоволила каждой из команд в той или ной части жизни, создавая испытания для каждой.",
+            ch1Text3: "Имея в команде Дюжин большинство родственников, главная зайчиха заняла место под номером Шесть, показывая другим командам что высшее число не признак главенства, от чего за ней и закрепилось её прозвище \"Шестая\" или же \"Шесть\", но дальше игр пока что это не уходило. И вот достигался возраст совершеннолетия, момент когда все начали искать себе пару, а некоторые уже даже и нашли, конечно же было и не без кровосмешения, только вот найти достойного партнёра для \"Шестой\" так и не увенчивалось успехом, она явно отличалась от других, она была больше, была как таковой любимицей за которой стоял Вождь, и даже другие Вожди не желали отдавать той своих сыновей. Зайчиха не получившая должного внимания другого пола большую часть времени была занята изучением медициной и становлением последователем бога Светоносной Лучиты.",
+            finalQuote: "«Моё имя — Шесть. Когда-то меня так звали в играх. Теперь это единственное, что у меня осталось. Вместе с верой. Этого достаточно... пока что».",
+            footerText: "Квента персонажа · Шесть"
+        },
+        en: {
+            mainSub: "Cleric of Life Domain · Harengon · 'Holy Dozen'",
+            badge1: "Life Domain · Healer",
+            badge2: "Spring of Life · Trugil",
+            label1: "Class / Race", val1: "Cleric (Life Domain) · Harengon",
+            label2: "Background / Alignment", val2: "Acolyte · Neutral",
+            label3: "Traits", val3: "Quiet personality",
+            label4: "Ideals", val4: "Life",
+            label5: "Bonds", val5: "Remaining faith",
+            label6: "Flaws", val6: "Morally bound by the master: Slave life has almost completely turned her thinking and life into servitude",
+            historyTitle: "The Story of Six",
+            ch1Title: "Chapter One: A New Beginning",
+            caption1: "✦ The red forests of Trugil — a place where many different peoples gather ✦",
+            ch1Text1: "A place where many different peoples and villages gather, the red forests of Trugil, one of the few settlements in these forests, located near a lake that nourishes the entire forest with its waters and beauty. The foundation of this small people consisted of several races of beastfolk who managed to live together with each other — among them were Hares, Turtles, and Gophers. This unusual union formed a unique way of life for this place: some engaged in farming, others in hunting, and the last in fishing. Thus passed several generations of this quiet and unusual place, not without its incidents, which were resolved by a council of chiefs, where the leading voice belonged to the chief of the hares, as they were simply more numerous and covered a larger area of work and responsibility.",
+            ch1Text2: "In this quiet village, a new hope of the clan was born — a strong, large, resilient, and promising daughter who was the pride of the entire tribe, as were her sisters and brothers. A wonderful time when heirs also appeared from other chiefs, and every day turned into games, joy, and serenity. Through games and fun, so-called teams emerged from each race: the hare team called themselves the 'Holy Dozen', the gophers the 'Lucky Six', and the turtles the 'Three Whales'. Fate favored each of the teams in one way or another, creating trials for each.",
+            ch1Text3: "Having most of her relatives on the Dozen team, the main hare took the spot number Six, showing the other teams that a higher number is not a sign of supremacy, which is why the nickname 'Sixth' or simply 'Six' stuck with her — though so far it didn't go beyond games. Then came the age of coming of age, a moment when everyone began to look for a mate, and some had even already found one — of course, there was also interbreeding. But finding a worthy partner for 'Six' was unsuccessful; she was clearly different from others, she was larger, she was a favorite backed by the Chief, and even other chiefs did not wish to give their sons to her. The hare, not receiving due attention from the opposite sex, spent most of her time studying medicine and becoming a follower of the goddess Luchita the Lightbringer.",
+            finalQuote: "«My name is Six. Once I was called that in games. Now it's all I have left. Along with my faith. That's enough... for now.»",
+            footerText: "Character Quest · Six"
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function updateLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        const btn = document.getElementById('langBtn');
+        
+        btn.innerHTML = lang === 'ru' ? '<i class="fas fa-globe"></i> English' : '<i class="fas fa-globe"></i> Русский';
+        document.getElementById('mainSub').innerText = t.mainSub;
+        document.getElementById('badge1').innerText = t.badge1;
+        document.getElementById('badge2').innerText = t.badge2;
+        document.getElementById('label1').innerText = t.label1; document.getElementById('val1').innerText = t.val1;
+        document.getElementById('label2').innerText = t.label2; document.getElementById('val2').innerText = t.val2;
+        document.getElementById('label3').innerText = t.label3; document.getElementById('val3').innerText = t.val3;
+        document.getElementById('label4').innerText = t.label4; document.getElementById('val4').innerText = t.val4;
+        document.getElementById('label5').innerText = t.label5; document.getElementById('val5').innerText = t.val5;
+        document.getElementById('label6').innerHTML = t.label6; document.getElementById('val6').innerHTML = t.val6;
+        document.getElementById('historyTitle').innerText = t.historyTitle;
+        document.getElementById('ch1Title').innerText = t.ch1Title;
+        document.getElementById('caption1').innerHTML = t.caption1;
+        document.getElementById('ch1Text1').innerHTML = t.ch1Text1;
+        document.getElementById('ch1Text2').innerHTML = t.ch1Text2;
+        document.getElementById('ch1Text3').innerHTML = t.ch1Text3;
+        document.getElementById('finalQuote').innerHTML = t.finalQuote;
+        document.getElementById('footerText').innerText = t.footerText;
+    }
+
+    const langBtn = document.getElementById('langBtn');
+    langBtn.addEventListener('click', () => {
+        updateLanguage(currentLang === 'ru' ? 'en' : 'ru');
+    });
+
+    const symbolCircle = document.querySelector('.symbol-circle i');
+    if (symbolCircle) {
+        setInterval(() => {
+            symbolCircle.style.textShadow = '0 0 8px #9bbe8a';
+            setTimeout(() => { symbolCircle.style.textShadow = 'none'; }, 200);
+        }, 3000);
+    }
+
+    updateLanguage('ru');
+</script>
+</body>
+</html>
