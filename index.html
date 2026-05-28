@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Шесть · Жрец Домена жизни · Квента персонажа</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Рукописный шрифт Caveat + дополнительные -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,7 +13,7 @@
             background: #d9e0c5;
             background-image: radial-gradient(circle at 20% 30%, rgba(120, 100, 70, 0.05) 2%, transparent 2.5%);
             background-size: 32px 32px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Caveat', cursive;
             color: #2c3e2b;
             line-height: 1.55;
             padding: 2rem 1.5rem;
@@ -42,15 +43,16 @@
             margin-bottom: 0.75rem;
         }
         h1 {
-            font-family: 'Cormorant Garamont', serif;
-            font-size: 2.8rem;
-            font-weight: 600;
+            font-family: 'Caveat', cursive;
+            font-size: 3.2rem;
+            font-weight: 700;
             color: #3d5e3a;
             letter-spacing: -0.5px;
         }
         .sub {
+            font-family: 'Caveat', cursive;
             color: #6b8c63;
-            font-size: 0.85rem;
+            font-size: 1rem;
             border-left: 3px solid #9bbe8a;
             padding-left: 1rem;
             margin-top: 0.4rem;
@@ -68,14 +70,14 @@
             color: #3d5e3a;
             padding: 0.5rem 1rem;
             border-radius: 40px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Caveat', cursive;
         }
         .lang-btn:hover { background: #cde2be; color: #2c4a28; transform: scale(1.02); }
         .info-panel {
@@ -109,9 +111,10 @@
             background: #f0f5e8;
             padding: 0.3rem 1rem;
             border-radius: 40px;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             color: #4b6e46;
             border: 1px solid #cde0be;
+            font-family: 'Caveat', cursive;
         }
         .traits {
             flex: 2.5;
@@ -124,24 +127,26 @@
             padding-bottom: 0.4rem;
         }
         .trait-label {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #8aa87d;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
         }
         .trait-value {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 500;
             color: #3d5e3a;
             margin-top: 0.2rem;
+            font-family: 'Caveat', cursive;
         }
         .content { padding: 1.2rem 2rem 2rem 2rem; }
         .section { margin-bottom: 2.2rem; }
         .section-title {
-            font-family: 'Cormorant Garamont', serif;
-            font-size: 1.7rem;
-            font-weight: 600;
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 700;
             color: #6b8c63;
             display: flex;
             align-items: center;
@@ -150,24 +155,26 @@
             padding-bottom: 0.3rem;
             margin-bottom: 1rem;
         }
-        .section-title i { font-size: 1.4rem; color: #9bbe8a; }
+        .section-title i { font-size: 1.6rem; color: #9bbe8a; }
         .section-text {
             color: #3d5e3a;
             text-align: justify;
             margin-bottom: 0.75rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.05rem;
         }
         .history-chapter { margin-bottom: 1.5rem; }
         .history-title {
-            font-family: 'Cormorant Garamont', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #7a9c6e;
             margin: 1rem 0 0.5rem 0;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .history-title i { font-size: 1.1rem; color: #9bbe8a; }
+        .history-title i { font-size: 1.3rem; color: #9bbe8a; }
         .chapter-image-left {
             float: left;
             width: 200px;
@@ -192,13 +199,14 @@
             display: block;
         }
         .image-caption {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             color: #8aa87d;
             text-align: center;
             padding: 0.4rem;
             background: #f8fbf4;
             border-top: 1px solid #dde8d0;
             font-style: italic;
+            font-family: 'Caveat', cursive;
         }
         .clear-float { clear: both; }
         hr {
@@ -209,11 +217,12 @@
         }
         .footer-note {
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             color: #9bbc8a;
             border-top: 1px solid #e0e8d4;
             padding: 1.2rem;
             background: #f8fbf4;
+            font-family: 'Caveat', cursive;
         }
         .fade-item {
             opacity: 0;
@@ -235,13 +244,14 @@
             .chapter-image-left { float: none; width: 100%; max-width: 280px; margin: 0 auto 1rem auto; }
             .header-buttons { position: static; margin-top: 1rem; justify-content: center; }
             .header { display: flex; flex-direction: column; gap: 0.5rem; }
+            h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.6rem; }
+            .history-title { font-size: 1.3rem; }
+            .section-text { font-size: 0.95rem; }
         }
         @media (max-width: 700px) {
             body { padding: 1rem; }
-            h1 { font-size: 2rem; }
             .info-panel, .content { padding-left: 1.2rem; padding-right: 1.2rem; }
-            .section-title { font-size: 1.4rem; }
-            .history-title { font-size: 1.1rem; }
         }
     </style>
 </head>
