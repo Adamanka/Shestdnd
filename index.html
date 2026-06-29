@@ -3,60 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Шесть · Жрец Домена жизни · Квента персонажа</title>
-    <!-- Рукописный шрифт Caveat + дополнительные -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Шесть · Жрец Домена жизни</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .parallax-bg-1 {
+            background-image: url('six_bg1.jpg');
+            opacity: 1;
+            filter: contrast(1.05) brightness(1.02);
+        }
+        .parallax-bg-2 {
+            background-image: url('six_bg2.jpg');
+            opacity: 0;
+            filter: contrast(1.05) brightness(1.02);
+        }
+        
         body {
-            background: #d9e0c5;
-            background-image: radial-gradient(circle at 20% 30%, rgba(120, 100, 70, 0.05) 2%, transparent 2.5%);
-            background-size: 32px 32px;
-            font-family: 'Caveat', cursive;
-            color: #2c3e2b;
+            background: transparent;
+            font-family: 'Inter', sans-serif;
+            color: #2c241e;
             line-height: 1.55;
             padding: 2rem 1.5rem;
-        }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .dossier {
-            background: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 12px 30px rgba(60, 80, 40, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
-            overflow: hidden;
-            border: 1px solid #c8d5b5;
-        }
-        .header {
-            background: #f0f5e8;
-            padding: 1.8rem 2rem 1.2rem 2rem;
-            border-bottom: 2px solid #bdd8a8;
             position: relative;
         }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(232, 224, 213, 0.60);
+            z-index: -1;
+        }
+        
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        .dossier {
+            background: rgba(255, 252, 247, 0.88);
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            border: 1px solid #e2d5c8;
+            backdrop-filter: blur(0px);
+        }
+        
+        .header {
+            background: rgba(245, 239, 232, 0.90);
+            padding: 1.8rem 2rem 1.2rem 2rem;
+            border-bottom: 2px solid #cbbfae;
+            position: relative;
+        }
+        
         .symbol-line {
             display: flex;
             align-items: center;
             gap: 10px;
             font-size: 1.2rem;
-            color: #8aa87d;
+            color: #9b7b5e;
             letter-spacing: 4px;
             font-family: monospace;
             margin-bottom: 0.75rem;
         }
+        
         h1 {
-            font-family: 'Caveat', cursive;
-            font-size: 3.2rem;
-            font-weight: 700;
-            color: #3d5e3a;
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #3a2c22;
             letter-spacing: -0.5px;
         }
+        
         .sub {
-            font-family: 'Caveat', cursive;
-            color: #6b8c63;
-            font-size: 1rem;
-            border-left: 3px solid #9bbe8a;
+            color: #7d6652;
+            font-size: 0.85rem;
+            border-left: 3px solid #bc9a72;
             padding-left: 1rem;
             margin-top: 0.4rem;
         }
+        
         .header-buttons {
             position: absolute;
             top: 1.8rem;
@@ -64,28 +104,168 @@
             display: flex;
             gap: 0.8rem;
         }
-        .lang-btn {
-            background: #e0ecd6;
-            border: 1px solid #9bbe8a;
-            color: #3d5e3a;
+        
+        .comrades-btn {
+            background: #2a221c;
+            border: 1px solid #bc9a72;
+            color: #e0c8b0;
             padding: 0.5rem 1rem;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Caveat', cursive;
+            font-family: 'Inter', sans-serif;
+            z-index: 10;
         }
-        .lang-btn:hover { background: #cde2be; color: #2c4a28; transform: scale(1.02); }
+        .comrades-btn:hover { background: #bc9a72; color: #1f1915; transform: scale(1.02); }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active { display: flex; }
+        
+        .modal-content {
+            background: #fffcf7;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid #e2d5c8;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            background: #f5efe8;
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid #cbbfae;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 1.5rem;
+            color: #3a2c22;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #9b7b5e;
+            transition: 0.2s;
+        }
+        .modal-close:hover { color: #bc5a38; }
+        
+        .comrade-list { padding: 1rem 1.5rem; }
+        .comrade-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9dfd3;
+        }
+        .comrade-card:last-child { border-bottom: none; }
+        .comrade-icon {
+            width: 50px;
+            height: 50px;
+            background: #f2ece4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #dacbbc;
+            flex-shrink: 0;
+        }
+        .comrade-icon i { font-size: 1.5rem; color: #aa8260; }
+        .comrade-info { flex: 1; }
+        .comrade-name { font-weight: 700; font-size: 1.1rem; color: #3a2c22; }
+        .comrade-class {
+            font-size: 0.7rem;
+            color: #9b826b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+        .comrade-thought {
+            font-size: 0.85rem;
+            color: #5c4a3b;
+            font-style: italic;
+        }
+        .comrade-thought i { color: #bc9a72; margin-right: 4px; }
+        
+        .image-gallery {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .image-gallery:hover {
+            filter: brightness(1.05) contrast(1.05);
+            box-shadow: 0 0 15px rgba(188, 106, 56, 0.5), 0 0 30px rgba(188, 106, 56, 0.3);
+            transform: scale(1.01);
+        }
+        
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .fullscreen-modal.active { display: flex; }
+        .fullscreen-modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+        }
+        .fullscreen-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 3001;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .fullscreen-close:hover { color: #bc9a72; transform: scale(1.1); }
+        
         .info-panel {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             padding: 2rem 2rem 0.8rem 2rem;
-            border-bottom: 1px solid #dde8d0;
+            border-bottom: 1px solid #e9dfd3;
         }
         .avatar {
             flex: 1;
@@ -98,23 +278,22 @@
         .symbol-circle {
             width: 130px;
             height: 130px;
-            background: #f0f5e8;
+            background: #f2ece4;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #bdd8a8;
+            border: 1px solid #dacbbc;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
-        .symbol-circle i { font-size: 3.8rem; color: #8aa87d; }
+        .symbol-circle i { font-size: 3.8rem; color: #aa8260; }
         .badge {
-            background: #f0f5e8;
+            background: #f3ede6;
             padding: 0.3rem 1rem;
             border-radius: 40px;
-            font-size: 0.85rem;
-            color: #4b6e46;
-            border: 1px solid #cde0be;
-            font-family: 'Caveat', cursive;
+            font-size: 0.7rem;
+            color: #6e5440;
+            border: 1px solid #dfd0c0;
         }
         .traits {
             flex: 2.5;
@@ -123,112 +302,158 @@
             gap: 0.8rem 1.5rem;
         }
         .trait-item {
-            border-bottom: 1px solid #e0e8d4;
+            border-bottom: 1px solid #e5d9ce;
             padding-bottom: 0.4rem;
         }
         .trait-label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #8aa87d;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            color: #9b826b;
+            font-weight: 500;
         }
         .trait-value {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            color: #3d5e3a;
+            color: #3e3026;
             margin-top: 0.2rem;
-            font-family: 'Caveat', cursive;
         }
+        
         .content { padding: 1.2rem 2rem 2rem 2rem; }
         .section { margin-bottom: 2.2rem; }
         .section-title {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #6b8c63;
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #836e58;
             display: flex;
             align-items: center;
             gap: 12px;
-            border-bottom: 1px solid #d4e2c4;
+            border-bottom: 1px solid #e0cfbf;
             padding-bottom: 0.3rem;
             margin-bottom: 1rem;
         }
-        .section-title i { font-size: 1.6rem; color: #9bbe8a; }
+        .section-title i { font-size: 1.4rem; color: #bc9a72; }
         .section-text {
-            color: #3d5e3a;
+            color: #3d3229;
             text-align: justify;
             margin-bottom: 0.75rem;
-            font-family: 'Caveat', cursive;
-            font-size: 1.05rem;
         }
+        .quote-mini {
+            background: #faf5ef;
+            padding: 0.8rem 1.2rem;
+            border-left: 4px solid #c9ae8b;
+            font-style: italic;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #5c4a3b;
+        }
+        .pillar-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .pillar-list li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .pillar-list li i {
+            color: #aa8260;
+            width: 24px;
+            font-size: 1rem;
+            margin-top: 3px;
+        }
+        
         .history-chapter { margin-bottom: 1.5rem; }
         .history-title {
-            font-family: 'Caveat', cursive;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #7a9c6e;
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #8e735b;
             margin: 1rem 0 0.5rem 0;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .history-title i { font-size: 1.3rem; color: #9bbe8a; }
+        .history-title i { font-size: 1.1rem; color: #bc9a72; }
+        
         .chapter-image-left {
             float: left;
             width: 200px;
             margin: 0 1.2rem 0.8rem 0;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            background: #f0f5e8;
-            border: 1px solid #cde0be;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #f2ece4;
+            border: 1px solid #e2d5c8;
             transition: all 0.3s ease;
         }
-        .hover-zoom {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .chapter-image-right {
+            float: right;
+            width: 280px;
+            margin: 0 0 0.8rem 1.2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #f2ece4;
+            border: 1px solid #e2d5c8;
+            transition: all 0.3s ease;
         }
-        .hover-zoom:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 25px rgba(60, 80, 40, 0.12), 0 0 0 2px rgba(155, 190, 138, 0.3);
+        .chapter-image-left-lower {
+            float: left;
+            width: 200px;
+            margin: 0.5rem 1.2rem 0.8rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background: #f2ece4;
+            border: 1px solid #e2d5c8;
+            transition: all 0.3s ease;
         }
-        .chapter-image-left img {
+        .chapter-image-left img, .chapter-image-right img, .chapter-image-left-lower img {
             width: 100%;
             height: auto;
             display: block;
+            cursor: pointer;
         }
         .image-caption {
-            font-size: 0.75rem;
-            color: #8aa87d;
+            font-size: 0.65rem;
+            color: #9b826b;
             text-align: center;
             padding: 0.4rem;
-            background: #f8fbf4;
-            border-top: 1px solid #dde8d0;
+            background: #faf7f2;
+            border-top: 1px solid #e9dfd3;
             font-style: italic;
-            font-family: 'Caveat', cursive;
+            cursor: pointer;
         }
         .clear-float { clear: both; }
+        
         hr {
             border: none;
             height: 1px;
-            background: linear-gradient(to right, #d4e2c4, transparent);
+            background: linear-gradient(to right, #e0cfbf, transparent);
             margin: 1rem 0;
         }
         .footer-note {
             text-align: center;
-            font-size: 0.85rem;
-            color: #9bbc8a;
-            border-top: 1px solid #e0e8d4;
+            font-size: 0.7rem;
+            color: #b29b84;
+            border-top: 1px solid #ece1d5;
             padding: 1.2rem;
-            background: #f8fbf4;
-            font-family: 'Caveat', cursive;
+            background: #fefbf8;
         }
+        
         .fade-item {
             opacity: 0;
             transform: translateY(12px);
             animation: fadeInUp 0.6s ease forwards;
         }
+        .fade-item:nth-child(1) { animation-delay: 0.05s; }
+        .fade-item:nth-child(2) { animation-delay: 0.10s; }
+        .fade-item:nth-child(3) { animation-delay: 0.15s; }
+        .fade-item:nth-child(4) { animation-delay: 0.20s; }
+        .fade-item:nth-child(5) { animation-delay: 0.25s; }
         @keyframes fadeInUp {
             0% { opacity: 0; transform: translateY(12px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -240,158 +465,339 @@
         }
         .section-title { animation-delay: 0s; }
         .history-title { animation-delay: 0.02s; }
+        
         @media (max-width: 600px) {
-            .chapter-image-left { float: none; width: 100%; max-width: 280px; margin: 0 auto 1rem auto; }
-            .header-buttons { position: static; margin-top: 1rem; justify-content: center; }
+            .chapter-image-left, .chapter-image-right, .chapter-image-left-lower {
+                float: none;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto 1rem auto;
+            }
+            .header-buttons {
+                position: static;
+                margin-top: 1rem;
+                justify-content: center;
+            }
             .header { display: flex; flex-direction: column; gap: 0.5rem; }
-            h1 { font-size: 2.5rem; }
-            .section-title { font-size: 1.6rem; }
-            .history-title { font-size: 1.3rem; }
-            .section-text { font-size: 0.95rem; }
         }
         @media (max-width: 700px) {
             body { padding: 1rem; }
+            h1 { font-size: 2rem; }
             .info-panel, .content { padding-left: 1.2rem; padding-right: 1.2rem; }
+            .section-title { font-size: 1.4rem; }
+            .history-title { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
+<div class="parallax-bg parallax-bg-1"></div>
+<div class="parallax-bg parallax-bg-2"></div>
+
 <div class="container">
     <div class="dossier">
         <div class="header">
             <div class="symbol-line">
-                <i class="fas fa-pray"></i> <span>✧ ☾ ✧</span> <i class="fas fa-moon"></i>
+                <i class="fas fa-rabbit"></i> <span>✧ ☾ ✧</span> <i class="fas fa-moon"></i>
             </div>
-            <h1 id="mainTitle">Шесть</h1>
-            <div class="sub" id="mainSub">Жрец Домена жизни · Зверолюд-заяц · «Святая Дюжина»</div>
+            <h1>Шесть</h1>
+            <div class="sub">Жрец Домена жизни · Зверолюд-заяц · «Элеутерия»</div>
             <div class="header-buttons">
-                <button class="lang-btn" id="langBtn"><i class="fas fa-globe"></i> English</button>
+                <button class="comrades-btn" id="comradesBtn"><i class="fas fa-users"></i> Товарищи</button>
             </div>
         </div>
 
         <div class="info-panel">
             <div class="avatar">
                 <div class="symbol-circle"><i class="fas fa-rabbit"></i></div>
-                <div class="badge"><i class="fas fa-heartbeat"></i> <span id="badge1">Домен жизни · Целитель</span></div>
-                <div class="badge"><i class="fas fa-dice-d10"></i> <span id="badge2">Весна жизни · Тругиль</span></div>
+                <div class="badge"><i class="fas fa-heartbeat"></i> Домен жизни · Целитель</div>
+                <div class="badge"><i class="fas fa-dice-d10"></i> Весна жизни · Тругиль</div>
             </div>
             <div class="traits">
-                <div class="trait-item fade-item"><div class="trait-label" id="label1">Класс / Раса</div><div class="trait-value" id="val1">Жрец (Домен жизни) · Зверолюд-заяц</div></div>
-                <div class="trait-item fade-item"><div class="trait-label" id="label2">Предыстория / Мировоззрение</div><div class="trait-value" id="val2">Награждённый · Нейтральное</div></div>
-                <div class="trait-item fade-item"><div class="trait-label" id="label3">Черты характера</div><div class="trait-value" id="val3">Тихий характер</div></div>
-                <div class="trait-item fade-item"><div class="trait-label" id="label4">Идеалы</div><div class="trait-value" id="val4">Жизнь</div></div>
-                <div class="trait-item fade-item"><div class="trait-label" id="label5">Привязанности</div><div class="trait-value" id="val5">Оставшиеся вера</div></div>
-                <div class="trait-item fade-item"><div class="trait-label" id="label6">Слабости</div><div class="trait-value" id="val6">Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую</div></div>
+                <div class="trait-item fade-item"><div class="trait-label">Класс / Раса</div><div class="trait-value">Жрец (Домен жизни) · Зверолюд-заяц</div></div>
+                <div class="trait-item fade-item"><div class="trait-label">Предыстория / Мировоззрение</div><div class="trait-value">Награждённый · Нейтральное</div></div>
+                <div class="trait-item fade-item"><div class="trait-label">Черты характера</div><div class="trait-value">Тихий характер</div></div>
+                <div class="trait-item fade-item"><div class="trait-label">Идеалы</div><div class="trait-value">Жизнь</div></div>
+                <div class="trait-item fade-item"><div class="trait-label">Привязанности</div><div class="trait-value">Оставшаяся вера</div></div>
+                <div class="trait-item fade-item"><div class="trait-label">Слабости</div><div class="trait-value">Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую</div></div>
             </div>
         </div>
 
         <div class="content">
             <div class="section">
-                <div class="section-title"><i class="fas fa-book-open"></i><span id="historyTitle">История Шесть</span></div>
+                <div class="section-title"><i class="fas fa-book-open"></i> История Шесть</div>
                 
-                <div class="history-chapter">
-                    <div class="history-title"><i class="fas fa-leaf"></i><span id="ch1Title">Глава первая: Новое начало</span></div>
-                    <div class="chapter-image-left fade-item hover-zoom">
-                        <img src="5dfba74b61cf9492de359c339fcbe82a.jpg" alt="Рыжие леса Тругиля">
-                        <div class="image-caption" id="caption1">✦ Рыжие леса Тругиля — место, где собираются множество разных народов ✦</div>
+                <!-- ГЛАВА 1 -->
+                <div class="history-chapter" data-chapter="1">
+                    <div class="history-title"><i class="fas fa-leaf"></i> Глава первая: Растущее будущее</div>
+                    <div class="chapter-image-left fade-item image-gallery">
+                        <img src="placeholder_ch1_six.jpg" alt="Рыжие леса Тругиля">
+                        <div class="image-caption">✦ Рыжие леса Тругиля — место, где собираются множество разных народов ✦</div>
                     </div>
-                    <div class="section-text fade-item" id="ch1Text1">Место где собираются множество разных народов и деревень, рыжие леса Тругиля, одно из немногих поселений в данных лесах расположилось неподалеку от озера питающая весь лес своими водами и красой, в основу малого народа вошли несколько рас зверолюдов, что смогли ужиться вместе с друг другом и одной из них были Зайцы, Черепахи и Суслики. Необычная связь Племени образовала необычный ход жизни этого места, где одни занимались земледелием, другие охотой и последние рыболовным хозяйством. Так и прошло несколько поколений тихой и необычного места, не без своих инцидентов, что решались советом вождей, где главенствующее слово держалось за вождём зайцев, так как их было просто больше и те охватывали большую территорию работ и ответственности.</div>
-                    <div class="section-text fade-item" id="ch1Text2">В столь тихой деревушки была рождена новая надежда рода, сильная, большая, выносливая и много обещающая дочь, которая была гордостью всего племени, как и её сёстры и братья. Прекрасная пора когда и от других вождей так же появились наследники и каждый день превратились в игры, радость и безмятежность. Через игры и веселье появились так называемые команды с каждой расы, где команда зайцев назвали себя "Святая Дюжина", суслики "Удачная шестёрка", а черепахи "Три кита". Судьба благоволила каждой из команд в той или ной части жизни, создавая испытания для каждой.</div>
-                    <div class="section-text fade-item" id="ch1Text3">Имея в команде Дюжин большинство родственников, главная зайчиха заняла место под номером Шесть, показывая другим командам что высшее число не признак главенства, от чего за ней и закрепилось её прозвище "Шестая" или же "Шесть", но дальше игр пока что это не уходило. И вот достигался возраст совершеннолетия, момент когда все начали искать себе пару, а некоторые уже даже и нашли, конечно же было и не без кровосмешения, только вот найти достойного партнёра для "Шестой" так и не увенчивалось успехом, она явно отличалась от других, она была больше, была как таковой любимицей за которой стоял Вождь, и даже другие Вожди не желали отдавать той своих сыновей. Зайчиха не получившая должного внимания другого пола большую часть времени была занята изучением медициной и становлением последователем бога Светоносной Лучиты.</div>
+                    <div class="section-text fade-item">Центральный регион не завоёванных земель, Леса Тругилия или же Рыжие леса Тругилии, место где жили множество видов зверолюдей, разных особенностей и культур, и где то в глубинке этих лесов, возле большего озера в давние времена была создано заячье поселение, вскоре выросшее чуть ли не одно из самых больших деревень этих лесов, что в свои лучшие могли соперничать по воинственности даже с хищниками. Ныне, деревня была частью большой сетью деревень, у которой был достаточно весомый голос на совете этих самых деревень.</div>
+                    <div class="section-text fade-item">Имея большую численность население и достаточно хорошо развитое сельское хозяйство, деревня вечно росла и расширялась. В эти времена мирного рассвета после военных шествий, у Главы семьи, которого большинство ласково называли "Вожак", родилось потомство, из практически двух десятков ребятишек и одна из них отличилась даже при рождении, что изначально её восприняли как мальчика, который не так родился.</div>
+                    <div class="section-text fade-item">"Девятый-Пирр, сын брата "Вожака", чувство справедливости и защиты бурлит сильнее всего в его душе, от чего и получал в детстве больше всего." Мирное время, детишки начали расти, мальчишки начали вырастать в будущих воинов, что защищают деревню, а также девочек, что были более маленькими версиями мальчиков, от чего и становились домохозяйками и матерями... Ну, это было у большинства, кроме "неё".</div>
+                    <div class="section-text fade-item">Родившись с врождённым гигантизмом и получившее говорящее имя "Элеутерия", означающий свободу выбора и пути в жизни, её сделали особенной в деревне, ей дали полную свободу выбора в жизни, становлением воином, матерью или даже претендовать на роль главы деревни, но в детстве она лишь развлекалась и радовалась каждому дню вместе со своими друзьями и родственниками, оставляя столь значимый выбор на будущее.</div>
+                    <div class="section-text fade-item">Пока в один на удивление дождливый день, в деревню не пришли приключенцы, что просили еды, тепла и крова, не за бесплатно. Положительный ответ со стороны "Вожака" не стал долго ждать и приключенцы начали жить неподалёку от дома главы. Оставаясь жить в столь большой деревне, было трудно не привлекать внимание, особенно, когда компания приключенцев была максимально разносторонней не только роду деятельности, но и расам.</div>
+                    <div class="section-text fade-item">И понемногу к ним начала тянуться детвора, любопытствуя и интересуясь жизнью за Лесами. В моментах игры и забавы переменились на сидения у кострища и выслушивания историй от их Барда-человека, который через мелодии и знанием их языка передавал приключения команды. Всё внимание детворы было приковано к ним, в особенности самой большой из них, что на свой малый возраст выглядела как уже взрослая зайчиха, её внимание была почти полностью украдено жрицей-эльфом и магом-орком их красотой магии, её полезности, а главное особенности.</div>
+                    <div class="section-text fade-item">Прошло время и наступил момент ухода приключенцев из деревни, они задержались дольше необходимого как раз таки из-за ребятишек, не желавшие их отпускать пока те не расскажут все их истории и пока "Элеутерия" не вкусит благи магии и божественного чуда. И всё-таки, без этих людей деревня стала будто тише и грустнее...</div>
+                    <div class="section-text fade-item">"Одиннадцатая-Агния, дочь "Вожака", добрый нрав, хорошие знания и очень, очень вкусная готовка." Продолжать жить в тишине и грусти после ухода приключенцев, было бы неправильно и дети решили, что им тоже нужна их собственная команда приключенцев и начали игры пышнее прежних, теперь у каждого были свои роли, свои цели и свои вдохновители образов.</div>
+                    <div class="section-text fade-item">Команд было много, около семи, и большая зайчиха попала в первую, как та, кто из первых предложила так играть. Состав первой команды состоял из целых двенадцати зайцев, хотя в остальных было больше. "Элеутерия" могла бы стать лидером в первой команде, но решила отдать этот пост сильнейшим по силе зайцам, старшим трём братьям и двум старшим сёстрам, оставив при себе шестое место отыгрывая роль жрицы.</div>
+                    <div class="section-text fade-item">Остальные заняли числа от семи, до двенадцати, деля и даже копируя роли друг друга. Так и началась более задорное и радостное детство, продлившееся вплоть до подросткового возраста, где роли стали негласными именами между друг другом, а простые игры перешли в серьёзное обучение.</div>
+                    <div class="section-text fade-item">"Двенадцатый-Ликург сын брата "Вожака", сильный для своего возраста, шустрый, немного глупенький, но очень дружелюбный." Как только начал наступать возраст согласий и поиска партнёров, компания друзей и родственников продолжала следовать своему детскому делу, некоторые уже могли с гордостью держать меч в руках, другие стрелять из лука, а некоторые даже колдовали и сотворяли чудеса, что и не отличило от других "Элеутерия", которая уже могла с помощью базовых молитв восстанавливать самые простые раны, небольшие головные боли и убирать усталость.</div>
+                    <div class="section-text fade-item">Всё шло прекрасно, деревня продолжала расцветать, рождались новые детишки, территории для жилья так же увеличились... Как и начали наступать новые проблемы. Совет деревень травоядных созвал сборы добровольцев для подготовки к конфликту с деревнями из хищного совета, что оказывается изначально отделились от основного Совета и решили забрать к себе во владение более слабыми деревнями.</div>
+                    <div class="section-text fade-item">Фактически, в конфликте участвовали большинство травоядных и малая часть хищников, но опасность для первых была очень даже большой и именно поэтому деревня зайцев ответила Совету согласием на участие в данном конфликте и начались сборы добровольцев. Первые кто ответил, как добровольцы была та самая компания, состоящая из двенадцати зайцев, которая всей своей душой и сердцем хотели получить приключения и опыт. Через небольшие споры и разногласия со стороны "Вожака", команда смогла получить добро.</div>
+                    <div class="section-text fade-item">"Четвёртый-Данакт, сын "Вожака", волевой и забывчивый, никогда не отходит Дакада и старается быть как он."</div>
+                    <div class="clear-float"></div>
+                </div>
+                
+                <!-- ГЛАВА 2 -->
+                <div class="history-chapter" data-chapter="2">
+                    <div class="history-title"><i class="fas fa-fire"></i> Глава вторая: Обжигающая цель</div>
+                    <div class="chapter-image-right fade-item image-gallery">
+                        <img src="placeholder_ch2_six.jpg" alt="Война">
+                        <div class="image-caption">✦ Война — первый шаг к падению ✦</div>
+                    </div>
+                    <div class="section-text fade-item">Вот и наступил день отправки... Волнительный, страшный и завораживающий опыт сразу окутал всю команду, по дороге вместе с другими добровольцами, команда была на своей волне, они были как белые вороны, что даже умудрялись своей радостным настроем заражать других и весь путь до основных войск был в пениях и забавных историях... Пока они не прибыли, где уже началась подготовка к войне, там были множество и других травоядных рас, такие как Гиффы, черепахопобные и малые расы по типу сусликовых.</div>
+                    <div class="section-text fade-item">Подготовка шла быстро и строго, что не помешало команде оставаться в оптимистическом настроении, ведь их команде, как и ещё небольшой команде из сусликов, стать разведчиками и пытаться напасть на врага с тыла. Как только подготовка была завершена, все части армии начали действовать как слаженный и простой механизм без излишков, но с малыми ошибками. Война началась.</div>
+                    <div class="section-text fade-item">"Восьмой-Влас, сын "Вожака", немного загадочный, не открывается всем, но зато очень милый и душевный в нужной компании." Команда зайцев отправились в глубины тыла врага, оставив сусликов как разведчиков для передачи информации. В тылу было неспокойно, и команда была очень аккуратна в своих действиях, сначала просто прослеживая, а после и оценивая количество и качество врагов...</div>
+                    <div class="section-text fade-item">Что были не совсем жителями этого Леса, гиеноподобные работали в союзе с некоторыми Леонинами, казалось, что это должна была быть какая-то сговорённость с основной силой Львов, но это были либо изгнанники, либо наёмники, что были у попечительства других, пока неизвестных для команды. Используя ночью свои способности скрытности, попасть в дома командиров, было не проблемой, как и украсть письменные планы ведения войны.</div>
+                    <div class="section-text fade-item">Обычная и простая ошибка, привела хищников к поражению, достаточно быстрому, что никто из врагов не успели среагировать правильно, крови со стороны травоядных было не много, особенно идеально показали себя команда зайцев, что выкрав планы, фактически расчистили путь до победы, только... Это на самом деле было только начало. Начало того, что для Армии союза деревень наступило время внезапной атаки со стороны, точнее даже с тыла, ведь было несколько направлений, которые начали приводить к внезапному хаосу среди травоядных.</div>
+                    <div class="section-text fade-item">Тем временем, команда зайцев, была готова к отступлению или же стыковой битве, пока, они так же не осознавали, что просто покинуть вражеский уничтоженный лагерь было испытанием. "Десятая-Анфиса, дочь брата "Вожака", увидевшая в отличии от меня красу не в магии и её результате, а в процессе и смысле, немного заносчивая, но всё так же добрая." Шло время... Сама первая война пролилась лишь пару месяцев, вторая же внезапная длилась уже практически полгода.</div>
+                    <div class="section-text fade-item">Травоядные приняли оборонительную позицию на старой вражеской территорией, война длилась достаточно долго, чтобы еда начала просто кончаться, только вода оставалась в доступе, но этого было мало. Пока шла блокада, команда зайцев всё время вместе с другими разведчиками пытались покинуть это место, но результаты не увенчались успехом и даже внезапными потерями, двое из команды зайцев покинули этот мир, когда в них попали отравленными стрелами.</div>
+                    <div class="section-text fade-item">"Шестая" не могла справиться с ранеными и пострадавшими, как и другие жрецы в армии травоядных. Медленно, боевой дух падал, так же, как и силы на сопротивление... Да и враги не особо пытались прямо нападать будто специально вытягивали жизненные силы из воинов, которых постепенно становилось всё меньше и меньше. Пока и вовсе сопротивляться почти никто уже не мог, а тех, кто продолжал или убивали, или показательно пытали перед другими.</div>
+                    <div class="section-text fade-item">Падение объединённой армии травоядных, привело Совет деревень в боевую готовность, что продолжали вести войну, но первая армия всё равно пала. Остатки первой армии были завоёваны и отправлены в рабство, как и команда зайцев, что уже поредела после блокады.</div>
+                    <div class="section-text fade-item">"Первый-Никон, старший сын "Вожака", быстрый, сильный, ответственный как будущий глава!"</div>
+                    <div class="clear-float"></div>
+                </div>
+                
+                <!-- ГЛАВА 3 -->
+                <div class="history-chapter" data-chapter="3">
+                    <div class="history-title"><i class="fas fa-chain-broken"></i> Глава третья: Сломленное будущее</div>
+                    <div class="chapter-image-left-lower fade-item image-gallery">
+                        <img src="placeholder_ch3_six.jpg" alt="Рабство">
+                        <div class="image-caption">✦ Рабство — медленная смерть души ✦</div>
+                    </div>
+                    <div class="section-text fade-item">Команда зайцев была продана на землях Таррах Мора, но покупателей было двое, от чего команда разделилась, но разделилась слишком неравномерно, ведь одна была выкуплена одним, а остальная выжившая девятка другим, таким образом Вторая смогла уйти от участи ада остальной команды. Покупателем остаток команды был один очень влиятельный и жестокий человек, руководящий подпольными боями на смерть, видящий в рабах только монеты и способ удовлетворить свои скрытые извращённые желания.</div>
+                    <div class="section-text fade-item">Каждому был присвоен номер, по совпадению, почти все получили номер такой же какой у них был при играх и в их команде, лишь десятая и двенадцатый, которые получили номера девятая и десятый соответственно, место второй никто не занял, он был оставлен как лучик света или же... Один из способов морального унижения выживших. Начались издевательства, сначала попали под удар женская часть команды, где по мимо насилия были унижения, голод и даже бои, где победителя награждали едой и вновь насилием.</div>
+                    <div class="section-text fade-item">Мужская же часть не ушла далеко от женской, отличия были в тяжести и количества издевательств. Единственная отличилась от всех, это была "Шестая", она была слишком необычна для её "Хозяина", высокий рост, не малые формы и слишком строгий и непокорённый взгляд. В отличии от других, она была одна, ей не давали встречать других, пытки, переходящие от насилия до издевательств, стало самым обычном делом на каждый день её жизни.</div>
+                    <div class="section-text fade-item">Участие в подпольных боях со стороны большой крольчихой было не редкостью, даже частым явлением. А смысл продолжать сражаться был в виде жизни её братьев и сестёр, создание иллюзии жизни... Пока не начались первые проигрыши "Шестой", именно в эти моменты в её комнату начали приносить изуродованные головы, первый был десятый (Ликург). И после этого моральное состояние зайчихи начал не просто падать, а хрустеть и ломаться, победы стали смыслом жизни...</div>
+                    <div class="section-text fade-item">"Третий-Дакад, сын "Вожака", немного строгий, но ласковый юноша, вечно главное лицо команды." Так продолжалось годами, отличия были лишь тогда, когда Зайчиха арендовалась другими извращенцами, то использовалась как козёл отпущения и попадала в пыточною по поводам и без, и даже пару раз могла увидеть живых родственников.</div>
+                    <div class="section-text fade-item">Поражения в боях были как иглы в сердце для Шестой, таким образом она потеряла Четвёртого (Данакта), Восьмого (Власа), Девятую (Анфису)... И так было не долго, ведь после третьего поражения изменились и наказания, на этот раз пали сразу двое, Первый(Никон) и Третий(Дакад), их поставили против самой "Шестой", выдав той оружие, а двоим ничего и даже отравили, что бы те не смогли победить ни в каком виде, используя метки раба резня началась.</div>
+                    <div class="section-text fade-item">Зайчиха, максимально сопротивляясь и испытывая мучения и боль двигалась, делая максимально простые выпады, дабы те могли как увернуться, так и ударить в ответ. Но, всё шло не так как хотела Шестая, так как последовал приказ в сторону парней, который заставлял тех попадать под клинок... Тьма, сознание Шестой затуманилось настолько, что она смогла очнуться в конце резни, стоя над своими братьями и окровавленным телом.</div>
+                    <div class="section-text fade-item">Моральное состояние девы покинуло этот мир уже на этом моменте, под крики и возгласы людей, которые поддерживали данный бой, упавший клинок зайчихи был показателем ломкости, чем в момент начал пользоваться её нынешний "Хозяин". Начался процесс приручения.</div>
+                    <div class="section-text fade-item">"Пятая-Мелина, дочь "Вожака", голос, что может проникнуть в самое сердце, успокоить или же взбодрить, само воплощения спокойствия."</div>
+                    <div class="clear-float"></div>
+                </div>
+                
+                <!-- ГЛАВА 4 -->
+                <div class="history-chapter" data-chapter="4">
+                    <div class="history-title"><i class="fas fa-skull"></i> Глава четвёртая: Потеря воли</div>
+                    <div class="chapter-image-right fade-item image-gallery">
+                        <img src="placeholder_ch4_six.jpg" alt="Потеря воли">
+                        <div class="image-caption">✦ Последняя нить оборвалась ✦</div>
+                    </div>
+                    <div class="section-text fade-item">Последние выжившие сёстры так же, как и Шестая продолжали жить, хотя последняя не могла так же видеть их, продолжая оставаться в неведении о их состоянии. А вот сами сёстры знали, что и как происходило, как зайчиху шантажировали живыми сестрицами, учили ставить своё мнение гораздо ниже, чем у хозяина, даже если приказывает той не хозяин, боязнь ярости господина и делания таких вещей по собственной воли, что это начало сильно пугать выживших сестёр.</div>
+                    <div class="section-text fade-item">Та самая арена с подпольными боями начала закаливать Шестую, и в моменте она даже забыла причину своего нахождения здесь, и для этого потребовалось лишь лет пять, чуть ли не беспрерывного ада.</div>
+                    <div class="section-text fade-item">"Седьмая-Ия, дочь брата "Вожака", задиристая и воительная, всегда бежит вперёд, никогда не оставляет свои позади." Для проверки преданности и приручения Шестой, одним из последних жестоких приказов было собственноручно убить последних уже практически не сопротивляющихся сестёр. Жестокий приказ, хладнокровные действия и безупречная работа.</div>
+                    <div class="section-text fade-item">Последние мгновения жизни сестёр были... Пустыми? Они видели в своей сестре лишь утешение и конец пыткам, но для их спасительницы... Это было лишь половина пути, ведь всё остальное время она оставалась одна, выполняя приказы, продолжая быть игрушкой и отличным псом, который мог сделать всё ради своего хозяина.</div>
+                    <div class="section-text fade-item">"Вторая-Синтия, старшая дочь "Вожака", краше неё были только звёзды, стройная, умная, добрая и живая..."</div>
+                    <div class="clear-float"></div>
+                </div>
+                
+                <!-- ГЛАВА 5 -->
+                <div class="history-chapter" data-chapter="5">
+                    <div class="history-title"><i class="fas fa-city"></i> Глава пятая: Новое место, новые проблемы</div>
+                    <div class="chapter-image-left-lower fade-item image-gallery">
+                        <img src="placeholder_ch5_six.jpg" alt="Соларнтир">
+                        <div class="image-caption">✦ Соларнтир — столица веры и справедливости ✦</div>
+                    </div>
+                    <div class="section-text fade-item">Непомерное количество времени прошло с момента, когда Шестая лишилась практически всех сестёр и братьев, знать, что Вторая жива она не знала, но и надежды на её нахождения у неё так же не было. Королевство Солантир, столица Аурем Вейл, место где царит вера и справедливость, Шестая попала в это место вместе со своим Хозяином, который держал ту в близи и заставил следить за округой как телохранитель, но по важным делам во дворце, Хозяину пришлось оставить Шестую и перед тем как покинуть её, отдал приказ быть полезной для города, по итогу по истечению времени та попала в добровольный отряд Самоубийц.</div>
+                    <div class="section-text fade-item">Заведённая в помещение рабыня просто слушала и наблюдала за происходящим внутри, стараясь не реагировать на большинство, но когда начался тот самый небольшой балаган с Дварфом и Человеком, то даже заинтересовалась ими, но продолжала оставаться в стороне. По приходу Дроу, понять, что именно она была новым временным Хозяином, то последовала за ней, слушая её приказы. Встреча с её мужем никак не повлияло на неё, а вот увидеть своих младших сородичей в рабах... Было обычным делом.</div>
+                    <div class="section-text fade-item">"С самого рождения…" Новый внезапный будущий друг был необычен, а их разговор с Каладаном, был немного абсурдным, от чего и особого внимания Шестой не привлёк. А вот большой мост, на котором предстоит битва немного заворожил, так же как и когда она прибыла в город.</div>
+                    <div class="section-text fade-item">Начало битвы… Нежить стала лезть без продуха, Шестая встала для защиты временного Хозяина и пыталась спасать тех, кто падал, что у неё получалась достаточно успешно. Держаться долго на мосту не получалось из-за злопастных требушетов, от чего им пришлось отступать, вплоть до стен и после за них. Тот самый друг Каладана попал в беду, пришлось ему помогать.</div>
+                    <div class="section-text fade-item">Появившийся в команде новый товарищ веселья не добавлял, особенно когда Шестая проходила мимо того самого места с крольчатами, не видя их, а только труп торговца рабами, внутри трепалась малая надежда, что они сбежали. Догнав группу, зайчиха продолжала в основе своей молча наблюдать и следовать за Биатрис. Пришедшая сильная нежить даже испугало деву, от чего она не могла выйти вперёд, смотря на то, как Каладан вышел и показал ка надо получать по лицу от сильного врага.</div>
+                    <div class="section-text fade-item">Святая благодать и на помощь пришёл рыцарь с крыльями, что позволил команде сбежать, жаль, что его труп с грохотом прилетел в башню стен у дворца. "Сильный, но пал так легко…" Пойдя во дворец, а после в тронный зал, дева не удивлялась всей красе этого места, как и его кровожадности и смети, обыскивая трупы рыцарей и найдя несколько простых предметов, Шестая продолжала следовать за Биатрис, что нашли путь под троном в Древние катакомбы, где… Был встречен Король королевства, предавший живой народ ради бессмертия.</div>
+                    <div class="section-text fade-item">Только предвкушал проигрышный бой, как внезапно на помощь пришёл Пак, муж Хозяйки, что благодаря своей жертве толи победил, толи изгнал врага. Оставшись в этом месте в окружении камней и остатка нежити, Траин, благодаря своей смекалке и проворству переместил всех... Куда-то к богу. "Ох…Святаностная Лучита… Это, вы? Нет…" Призыв к богу и её слова были восприняты Шестой, как послание от своего бога, переданный через другого.</div>
+                    <div class="clear-float"></div>
+                </div>
+                
+                <!-- ГЛАВА 6 -->
+                <div class="history-chapter" data-chapter="6">
+                    <div class="history-title"><i class="fas fa-water"></i> Глава шестая: Вода… И ещё раз Вода</div>
+                    <div class="chapter-image-right fade-item image-gallery">
+                        <img src="placeholder_ch6_six.jpg" alt="Река">
+                        <div class="image-caption">✦ Вода смывает всё, кроме памяти ✦</div>
+                    </div>
+                    <div class="section-text fade-item">После перемещения от бога, падая в воду, Шестой не очень повезло, ведь тут же начала то тонуть, то ударятся о скалы, пока та вовсе не уплыла за взоры своих временных соратников. Если бы не Совлин Клер, то вероятнее всего зайчиха бы улетела вовсе вниз водопада. После воды встав на ноги, деве было трудно двигать руками, ведь обеих она умудрилась отбить, но благодаря Балсмегу и его повязке боль утихла, но всё ещё зудела и пульсировала.</div>
+                    <div class="section-text fade-item">Выйдя дальше по тропинке и замечая следы жизнедеятельности в виде срезанных грибов, команда стала более бдительной, и Зайчиха скрылась за деревьями для того, чтобы выследить из укрытия куда они направляться и видя лагерь перед собой, то следила за странным Тифлингом, что охранял это место. Пока не вышла Биатрис и Каладан, что так же заставили выйти и Шестую, показав себя.</div>
+                    <div class="section-text fade-item">Костёр, устроившись рядом с ним и получая заветное тепло после холодной реки, человек-паладин подошёл к зайчихе, дабы помочь той справиться с болью в руках, хоть и не с первого раза. Сидя в тишине и относительной безопасности, а также получив немного еды от Хозяйки, что уже стала в глазах Шестой полноценно, она восстанавливалась. "Новый хозяин? Старого не нашла… Надеюсь она будет менее жестокой…"</div>
+                    <div class="section-text fade-item">Идиллия и спокойство не продлилось долго, и ушедшая на звуки основная команда вступила в бой, но и на базе не было безопасно, волкоподобные существа вышли на охоту. Девы что остались начали обороняться, хотя дроу побежала сначала к своим вещам, а после отдавшая приказ на присоединение к другой команде предупредив их о том, что с тыла так же есть враги, Шестая, используя свои ноги понеслась в самый разгар битвы.</div>
+                    <div class="section-text fade-item">Сама битва была не долгой, даже наоборот быстрой и бескровной, и внезапный новый соратник показал куда лучше всего уйти, в глубь этого леса. Магия, достаточно полезная вещь, позволяющая даже пройти через врагов с невидимости и скрытности, что и случилось с группой и даже когда их догнал главарь этих странных волков, тот не последовал группу. Выйдя на странные болота, Шестая всё ещё оставалась у Хозяйки, смотря и наблюдая за всеми вокруг, так особо и не разговаривая со всеми.</div>
+                    <div class="section-text fade-item">Пройдя и это место по безопасной дороге. Группа шла несколько дней в сторону деревни в которой наконец-то были встречены люди. Усталая, оголодавшая Шестая, могла только следовать за своей Хозяйкой, в основе, не слушая и не обращая на ничего внимание, пока Биатрис не начала вести себя странно. Что заставило Зайчиху следить за той более внимательно и пытаться понять, что за проблемы будут преследовать её нового Хозяина.</div>
+                    <div class="section-text fade-item">Пройдя таверну? И отдав своё оружие, Шестая прошла по итогу в Бордель... На секунду, та подумала, что той придаться продавать своё тело, вновь, но по итогу та осталась нетронута, следуя за Хозяйкой до самого конца. Новое место, новые знакомства и даже необычные ощущения, ведь Шестая давно не видела... Дитя, что так радовался приходу её Хозяина. И даже на будущий важный разговор с Лизи зайчиха не реагировала, ведь была в раздумьях что делать с новой маленькой Хозяйкой.</div>
                     <div class="clear-float"></div>
                 </div>
             </div>
             
+            <div class="section">
+                <div class="section-title"><i class="fas fa-eye"></i> Страх, что гложет изнутри</div>
+                <div class="section-text fade-item">Остаться ненужной никому, ни в виде предмета, ни в виде живого существа. Потерять последнее что у неё осталось — веру в богиню. Вернуться домой. Она боится, что однажды проснётся и поймёт — она уже не помнит, какой была до цепей.</div>
+                <div class="quote-mini fade-item"><i class="fas fa-quote-left"></i> «Я лечу других, но кто исцелит меня? Моя вера — единственное, что осталось. Если и её отнимут... я стану пустой оболочкой».</div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title"><i class="fas fa-bullseye"></i> Цели, что ведут вперёд</div>
+                <ul class="pillar-list">
+                    <li class="fade-item"><i class="fas fa-dove"></i> <strong>Восстановить душу и разум</strong> — вернуть себе волю и память о том, кем она была до рабства.</li>
+                    <li class="fade-item"><i class="fas fa-hand-holding-heart"></i> <strong>Найти своё имя</strong> — «Элеутерия» значит «свобода». Но она забыла, как звучит её настоящее имя.</li>
+                    <li class="fade-item"><i class="fas fa-users"></i> <strong>Увидеть Вторую</strong> — найти сестру Синтию, единственную, кто, возможно, ещё жив.</li>
+                    <li class="fade-item"><i class="fas fa-sun"></i> <strong>Изменить смысл жизни</strong> — перестать быть оружием и стать живым существом.</li>
+                </ul>
+            </div>
             <hr>
-            <div class="section-text fade-item" style="font-size:0.85rem; color:#7a9c6e;"><i class="fas fa-comment-dots"></i> <span id="finalQuote">«Моё имя — Шесть. Когда-то меня так звали в играх. Теперь это единственное, что у меня осталось. Вместе с верой. Этого достаточно... пока что».</span></div>
+            <div class="section-text fade-item" style="font-size:0.85rem; color:#6a5a4b;"><i class="fas fa-comment-dots"></i> «Моё имя — Шесть. Когда-то меня так звали в играх. Теперь это единственное, что у меня осталось. Вместе с верой. Этого достаточно... пока что».</div>
         </div>
-        <div class="footer-note"><i class="fas fa-scroll"></i> <span id="footerText">Квента персонажа · Шесть</span></div>
+        <div class="footer-note"><i class="fas fa-scroll"></i> Квента персонажа · Тругиль · Святая Дюжина</div>
     </div>
 </div>
 
+<div id="comradesModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-users"></i> Товарищи</h3>
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+        </div>
+        <div class="comrade-list">
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-user"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Каладан</div>
+                    <div class="comrade-class">Человек · Паладин</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Человек-пьяница. Паладин. Но дерётся хорошо. И не смотрит на меня как на вещь.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-dwarf"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Траин</div>
+                    <div class="comrade-class">Дварф</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Карлик-пьяница. Бородатый воин. Любит лежать на земле. Странный. Но сильный.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-feather-alt"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Клэр</div>
+                    <div class="comrade-class">Совлин · Следопыт</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Пушистые перья... Хищник. Почти попала мне по уху. Спасибо ей. Я не утонула.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-moon"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Биатрис</div>
+                    <div class="comrade-class">Дроу · Колдун</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Хозяйка... Новая Хозяйка. Пока не бьёт. Не мучает. Этого достаточно.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-fist-raised"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Балсмег</div>
+                    <div class="comrade-class">Полуорк · Варвар</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Большой. Он больше меня. Варвар. Он дал мне повязку. Боль ушла.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-leaf"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Вейл</div>
+                    <div class="comrade-class">Тифлинг · Друид</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный... Ходит вокруг паладина. Слишком странная походка. Знакомый доспех.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-paw"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">? (Апоссум)</div>
+                    <div class="comrade-class">Зверолюд</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный. Жизнерадостный. Любопытно. Он не боится меня.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-skull"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Пак</div>
+                    <div class="comrade-class">Дампир</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный... Муж Хозяйки. Хозяин? Пропал. Надеюсь, он жив.»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-child"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Малая Хозяйка</div>
+                    <div class="comrade-class">Дочь Биатрис</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Маленькая. Юркая. Дочь Хозяйки. Малая хозяйка. Она так радовалась...»</div>
+                </div>
+            </div>
+            <div class="comrade-card">
+                <div class="comrade-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <div class="comrade-info">
+                    <div class="comrade-name">Лизи</div>
+                    <div class="comrade-class">Друг Биатрис</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Друг хозяйки. Странный. Но... она была добра ко мне.»</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fullscreenModal" class="fullscreen-modal">
+    <button class="fullscreen-close" id="fullscreenCloseBtn">&times;</button>
+    <img id="fullscreenImage" src="" alt="Полноэкранный режим">
+</div>
+
 <script>
-    const translations = {
-        ru: {
-            mainSub: "Жрец Домена жизни · Зверолюд-заяц · «Святая Дюжина»",
-            badge1: "Домен жизни · Целитель",
-            badge2: "Весна жизни · Тругиль",
-            label1: "Класс / Раса", val1: "Жрец (Домен жизни) · Зверолюд-заяц",
-            label2: "Предыстория / Мировоззрение", val2: "Награждённый · Нейтральное",
-            label3: "Черты характера", val3: "Тихий характер",
-            label4: "Идеалы", val4: "Жизнь",
-            label5: "Привязанности", val5: "Оставшиеся вера",
-            label6: "Слабости", val6: "Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую",
-            historyTitle: "История Шесть",
-            ch1Title: "Глава первая: Новое начало",
-            caption1: "✦ Рыжие леса Тругиля — место, где собираются множество разных народов ✦",
-            ch1Text1: "Место где собираются множество разных народов и деревень, рыжие леса Тругиля, одно из немногих поселений в данных лесах расположилось неподалеку от озера питающая весь лес своими водами и красой, в основу малого народа вошли несколько рас зверолюдов, что смогли ужиться вместе с друг другом и одной из них были Зайцы, Черепахи и Суслики. Необычная связь Племени образовала необычный ход жизни этого места, где одни занимались земледелием, другие охотой и последние рыболовным хозяйством. Так и прошло несколько поколений тихой и необычного места, не без своих инцидентов, что решались советом вождей, где главенствующее слово держалось за вождём зайцев, так как их было просто больше и те охватывали большую территорию работ и ответственности.",
-            ch1Text2: "В столь тихой деревушки была рождена новая надежда рода, сильная, большая, выносливая и много обещающая дочь, которая была гордостью всего племени, как и её сёстры и братья. Прекрасная пора когда и от других вождей так же появились наследники и каждый день превратились в игры, радость и безмятежность. Через игры и веселье появились так называемые команды с каждой расы, где команда зайцев назвали себя \"Святая Дюжина\", суслики \"Удачная шестёрка\", а черепахи \"Три кита\". Судьба благоволила каждой из команд в той или ной части жизни, создавая испытания для каждой.",
-            ch1Text3: "Имея в команде Дюжин большинство родственников, главная зайчиха заняла место под номером Шесть, показывая другим командам что высшее число не признак главенства, от чего за ней и закрепилось её прозвище \"Шестая\" или же \"Шесть\", но дальше игр пока что это не уходило. И вот достигался возраст совершеннолетия, момент когда все начали искать себе пару, а некоторые уже даже и нашли, конечно же было и не без кровосмешения, только вот найти достойного партнёра для \"Шестой\" так и не увенчивалось успехом, она явно отличалась от других, она была больше, была как таковой любимицей за которой стоял Вождь, и даже другие Вожди не желали отдавать той своих сыновей. Зайчиха не получившая должного внимания другого пола большую часть времени была занята изучением медициной и становлением последователем бога Светоносной Лучиты.",
-            finalQuote: "«Моё имя — Шесть. Когда-то меня так звали в играх. Теперь это единственное, что у меня осталось. Вместе с верой. Этого достаточно... пока что».",
-            footerText: "Квента персонажа · Шесть"
-        },
-        en: {
-            mainSub: "Cleric of Life Domain · Harengon · 'Holy Dozen'",
-            badge1: "Life Domain · Healer",
-            badge2: "Spring of Life · Trugil",
-            label1: "Class / Race", val1: "Cleric (Life Domain) · Harengon",
-            label2: "Background / Alignment", val2: "Acolyte · Neutral",
-            label3: "Traits", val3: "Quiet personality",
-            label4: "Ideals", val4: "Life",
-            label5: "Bonds", val5: "Remaining faith",
-            label6: "Flaws", val6: "Morally bound by the master: Slave life has almost completely turned her thinking and life into servitude",
-            historyTitle: "The Story of Six",
-            ch1Title: "Chapter One: A New Beginning",
-            caption1: "✦ The red forests of Trugil — a place where many different peoples gather ✦",
-            ch1Text1: "A place where many different peoples and villages gather, the red forests of Trugil, one of the few settlements in these forests, located near a lake that nourishes the entire forest with its waters and beauty. The foundation of this small people consisted of several races of beastfolk who managed to live together with each other — among them were Hares, Turtles, and Gophers. This unusual union formed a unique way of life for this place: some engaged in farming, others in hunting, and the last in fishing. Thus passed several generations of this quiet and unusual place, not without its incidents, which were resolved by a council of chiefs, where the leading voice belonged to the chief of the hares, as they were simply more numerous and covered a larger area of work and responsibility.",
-            ch1Text2: "In this quiet village, a new hope of the clan was born — a strong, large, resilient, and promising daughter who was the pride of the entire tribe, as were her sisters and brothers. A wonderful time when heirs also appeared from other chiefs, and every day turned into games, joy, and serenity. Through games and fun, so-called teams emerged from each race: the hare team called themselves the 'Holy Dozen', the gophers the 'Lucky Six', and the turtles the 'Three Whales'. Fate favored each of the teams in one way or another, creating trials for each.",
-            ch1Text3: "Having most of her relatives on the Dozen team, the main hare took the spot number Six, showing the other teams that a higher number is not a sign of supremacy, which is why the nickname 'Sixth' or simply 'Six' stuck with her — though so far it didn't go beyond games. Then came the age of coming of age, a moment when everyone began to look for a mate, and some had even already found one — of course, there was also interbreeding. But finding a worthy partner for 'Six' was unsuccessful; she was clearly different from others, she was larger, she was a favorite backed by the Chief, and even other chiefs did not wish to give their sons to her. The hare, not receiving due attention from the opposite sex, spent most of her time studying medicine and becoming a follower of the goddess Luchita the Lightbringer.",
-            finalQuote: "«My name is Six. Once I was called that in games. Now it's all I have left. Along with my faith. That's enough... for now.»",
-            footerText: "Character Quest · Six"
-        }
-    };
-
-    let currentLang = 'ru';
-
-    function updateLanguage(lang) {
-        currentLang = lang;
-        const t = translations[lang];
-        const btn = document.getElementById('langBtn');
-        
-        btn.innerHTML = lang === 'ru' ? '<i class="fas fa-globe"></i> English' : '<i class="fas fa-globe"></i> Русский';
-        document.getElementById('mainSub').innerText = t.mainSub;
-        document.getElementById('badge1').innerText = t.badge1;
-        document.getElementById('badge2').innerText = t.badge2;
-        document.getElementById('label1').innerText = t.label1; document.getElementById('val1').innerText = t.val1;
-        document.getElementById('label2').innerText = t.label2; document.getElementById('val2').innerText = t.val2;
-        document.getElementById('label3').innerText = t.label3; document.getElementById('val3').innerText = t.val3;
-        document.getElementById('label4').innerText = t.label4; document.getElementById('val4').innerText = t.val4;
-        document.getElementById('label5').innerText = t.label5; document.getElementById('val5').innerText = t.val5;
-        document.getElementById('label6').innerHTML = t.label6; document.getElementById('val6').innerHTML = t.val6;
-        document.getElementById('historyTitle').innerText = t.historyTitle;
-        document.getElementById('ch1Title').innerText = t.ch1Title;
-        document.getElementById('caption1').innerHTML = t.caption1;
-        document.getElementById('ch1Text1').innerHTML = t.ch1Text1;
-        document.getElementById('ch1Text2').innerHTML = t.ch1Text2;
-        document.getElementById('ch1Text3').innerHTML = t.ch1Text3;
-        document.getElementById('finalQuote').innerHTML = t.finalQuote;
-        document.getElementById('footerText').innerText = t.footerText;
-    }
-
-    const langBtn = document.getElementById('langBtn');
-    langBtn.addEventListener('click', () => {
-        updateLanguage(currentLang === 'ru' ? 'en' : 'ru');
+    // Модалка товарищей
+    const modalEl = document.getElementById('comradesModal');
+    const openBtn = document.getElementById('comradesBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    
+    openBtn.addEventListener('click', () => modalEl.classList.add('active'));
+    closeBtn.addEventListener('click', () => modalEl.classList.remove('active'));
+    modalEl.addEventListener('click', (e) => { if (e.target === modalEl) modalEl.classList.remove('active'); });
+    
+    // Fullscreen картинок
+    const images = document.querySelectorAll('.chapter-image-left img, .chapter-image-right img, .chapter-image-left-lower img');
+    const fsModal = document.getElementById('fullscreenModal');
+    const fsImg = document.getElementById('fullscreenImage');
+    const fsClose = document.getElementById('fullscreenCloseBtn');
+    
+    images.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.stopPropagation();
+            fsImg.src = this.src;
+            fsModal.classList.add('active');
+        });
     });
-
-    const symbolCircle = document.querySelector('.symbol-circle i');
-    if (symbolCircle) {
+    
+    function closeFullscreen() {
+        fsModal.classList.remove('active');
+        fsImg.src = '';
+    }
+    
+    fsClose.addEventListener('click', closeFullscreen);
+    fsModal.addEventListener('click', (e) => { if (e.target === fsModal) closeFullscreen(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && fsModal.classList.contains('active')) closeFullscreen(); });
+    
+    // Пульсация руны
+    const symbol = document.querySelector('.symbol-circle i');
+    if (symbol) {
         setInterval(() => {
-            symbolCircle.style.textShadow = '0 0 8px #9bbe8a';
-            setTimeout(() => { symbolCircle.style.textShadow = 'none'; }, 200);
+            symbol.style.textShadow = '0 0 8px #d47f58';
+            setTimeout(() => { symbol.style.textShadow = 'none'; }, 200);
         }, 3000);
     }
-
-    updateLanguage('ru');
 </script>
 </body>
 </html>
