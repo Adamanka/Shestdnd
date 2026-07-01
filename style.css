@@ -108,16 +108,40 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     z-index: -2;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
 }
 
 .parallax-bg-1 {
-    background-image: url('six_bg1.jpg');
+    background-image: url('c711b1b8a3ee1fbede4045c3062fdefa.jpg');
     opacity: 1;
     filter: contrast(1.05) brightness(1.02);
 }
 
 .parallax-bg-2 {
+    background-image: url('beb9360fccccde3650c1c23c07a7a6bd.jpg');
+    opacity: 0;
+    filter: contrast(1.05) brightness(1.02);
+}
+
+.parallax-bg-3 {
+    background-image: url('ba352647fa3695cda83a143348a87df3.jpg');
+    opacity: 0;
+    filter: contrast(1.05) brightness(1.02);
+}
+
+.parallax-bg-4 {
+    background-image: url('542f3460e3e1419f0b3bac3f5a5de284.jpg');
+    opacity: 0;
+    filter: contrast(1.05) brightness(1.02);
+}
+
+.parallax-bg-5 {
+    background-image: url('290bcc82a70dd42544d48bbc01794a38.jpg');
+    opacity: 0;
+    filter: contrast(1.05) brightness(1.02);
+}
+
+.parallax-bg-6 {
     background-image: url('six_bg2.jpg');
     opacity: 0;
     filter: contrast(1.05) brightness(1.02);
@@ -659,6 +683,9 @@ h1 {
     text-align: justify;
     margin-bottom: 0.75rem;
     transition: color 0.3s ease;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .quote-mini {
@@ -773,13 +800,7 @@ h1 {
     transition: color 0.3s ease, background 0.3s ease, border 0.3s ease;
 }
 
-/* ===== ОТСТУПЫ ДЛЯ ТЕКСТА ВОКРУГ КАРТИНОК ===== */
-.section-text {
-    overflow: hidden;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
+/* ===== ВОСПОМИНАНИЯ ===== */
 .memory-whisper {
     background: rgba(234, 245, 224, 0.08);
     padding: 0.8rem 1.2rem;
