@@ -1,5 +1,11 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===== RESET ===== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
 
+/* ===== ТЕМЫ (6 штук) ===== */
 :root {
     --bg: #0d1a0d;
     --bg-card: #1a2a1a;
@@ -29,6 +35,7 @@
     --rune: #7aaa5a;
     --rune-glow: #7aaa5a;
 }
+
 [data-theme="3"] {
     --bg: #1a1a2e;
     --bg-card: #16213e;
@@ -43,6 +50,7 @@
     --rune: #8ab0d0;
     --rune-glow: #6a9ac0;
 }
+
 [data-theme="4"] {
     --bg: #1a0f0a;
     --bg-card: #2a1a10;
@@ -57,6 +65,7 @@
     --rune: #d4a373;
     --rune-glow: #e8c49a;
 }
+
 [data-theme="5"] {
     --bg: #1a0a1a;
     --bg-card: #2a152a;
@@ -71,6 +80,7 @@
     --rune: #d08ab0;
     --rune-glow: #c06a9a;
 }
+
 [data-theme="6"] {
     --bg: #0a0a0a;
     --bg-card: #1a1a1a;
@@ -86,6 +96,7 @@
     --rune-glow: #c0c0c0;
 }
 
+/* ===== ПАРАЛЛАКС ФОНЫ ===== */
 .parallax-bg {
     position: fixed;
     top: 0;
@@ -99,17 +110,20 @@
     z-index: -2;
     transition: opacity 0.5s ease-in-out;
 }
+
 .parallax-bg-1 {
     background-image: url('six_bg1.jpg');
     opacity: 1;
     filter: contrast(1.05) brightness(1.02);
 }
+
 .parallax-bg-2 {
     background-image: url('six_bg2.jpg');
     opacity: 0;
     filter: contrast(1.05) brightness(1.02);
 }
 
+/* ===== ОБЩИЕ СТИЛИ ===== */
 body {
     background: var(--bg);
     font-family: 'Inter', sans-serif;
@@ -119,6 +133,7 @@ body {
     position: relative;
     transition: background 0.3s ease, color 0.3s ease;
 }
+
 body::before {
     content: '';
     position: fixed;
@@ -131,8 +146,12 @@ body::before {
     transition: background 0.3s ease;
 }
 
-.container { max-width: 1000px; margin: 0 auto; }
+.container { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
 
+/* ===== ОСНОВНАЯ КАРТОЧКА ===== */
 .dossier {
     background: var(--bg-card);
     border-radius: 24px;
@@ -143,6 +162,7 @@ body::before {
     transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ===== HEADER ===== */
 .header {
     background: var(--bg-header);
     padding: 1.8rem 2rem 1.2rem 2rem;
@@ -206,12 +226,14 @@ h1 {
     font-family: 'Inter', sans-serif;
     z-index: 10;
 }
+
 .comrades-btn:hover, .theme-btn:hover {
     background: var(--accent);
     color: #1f3a1a;
     transform: scale(1.02);
 }
 
+/* ===== МОДАЛКИ ===== */
 .modal {
     display: none;
     position: fixed;
@@ -225,6 +247,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
 .modal.active { display: flex; }
 
 .modal-content {
@@ -239,6 +262,7 @@ h1 {
     animation: modalFadeIn 0.3s ease;
     transition: background 0.3s ease, border 0.3s ease;
 }
+
 @keyframes modalFadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -253,11 +277,13 @@ h1 {
     align-items: center;
     transition: background 0.3s ease, border 0.3s ease;
 }
+
 .modal-header h3 {
     font-family: 'Cormorant Garamont', serif;
     font-size: 1.5rem;
     color: var(--text);
 }
+
 .modal-close {
     background: none;
     border: none;
@@ -266,9 +292,12 @@ h1 {
     color: var(--text-muted);
     transition: 0.2s;
 }
+
 .modal-close:hover { color: var(--accent); }
 
+/* ===== ТОВАРИЩИ ===== */
 .comrade-list { padding: 1rem 1.5rem; }
+
 .comrade-card {
     display: flex;
     gap: 1rem;
@@ -276,7 +305,9 @@ h1 {
     border-bottom: 1px solid var(--border);
     transition: border 0.3s ease;
 }
+
 .comrade-card:last-child { border-bottom: none; }
+
 .comrade-icon {
     width: 50px;
     height: 50px;
@@ -289,9 +320,20 @@ h1 {
     flex-shrink: 0;
     transition: background 0.3s ease, border 0.3s ease;
 }
-.comrade-icon i { font-size: 1.5rem; color: var(--rune); }
+
+.comrade-icon i { 
+    font-size: 1.5rem; 
+    color: var(--rune); 
+}
+
 .comrade-info { flex: 1; }
-.comrade-name { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+
+.comrade-name { 
+    font-weight: 700; 
+    font-size: 1.1rem; 
+    color: var(--text); 
+}
+
 .comrade-class {
     font-size: 0.7rem;
     color: var(--text-muted);
@@ -299,13 +341,19 @@ h1 {
     letter-spacing: 1px;
     margin-bottom: 0.3rem;
 }
+
 .comrade-thought {
     font-size: 0.85rem;
     color: var(--text);
     font-style: italic;
 }
-.comrade-thought i { color: var(--accent); margin-right: 4px; }
 
+.comrade-thought i { 
+    color: var(--accent); 
+    margin-right: 4px; 
+}
+
+/* ===== МОДАЛКА ТЕМ ===== */
 .theme-modal {
     display: none;
     position: fixed;
@@ -319,6 +367,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
 .theme-modal.active { display: flex; }
 
 .theme-modal-content {
@@ -343,11 +392,13 @@ h1 {
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.8rem;
 }
+
 .theme-modal-header h3 {
     font-family: 'Cormorant Garamont', serif;
     font-size: 1.5rem;
     color: var(--text);
 }
+
 .theme-modal-close {
     background: none;
     border: none;
@@ -356,8 +407,10 @@ h1 {
     color: var(--text-muted);
     transition: 0.2s;
 }
+
 .theme-modal-close:hover { color: var(--accent); }
 
+/* ===== СЕТКА ТЕМ ===== */
 .theme-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -373,10 +426,12 @@ h1 {
     background: var(--bg-card);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
 .theme-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
+
 .theme-card.active-theme {
     border-color: var(--accent);
     box-shadow: 0 0 0 2px var(--accent), 0 4px 12px rgba(0,0,0,0.1);
@@ -394,20 +449,12 @@ h1 {
     letter-spacing: 0.5px;
     margin-bottom: 0.6rem;
     border: 1px solid rgba(255,255,255,0.1);
-}
-.theme-name {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-align: center;
-    color: var(--text);
-}
-
-.theme-card .theme-preview {
     background: var(--bg);
     color: var(--text);
     border-color: var(--border);
 }
-.theme-card .theme-preview span {
+
+.theme-preview span {
     background: var(--accent);
     padding: 4px 12px;
     border-radius: 20px;
@@ -415,10 +462,19 @@ h1 {
     color: #fff;
 }
 
+.theme-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text);
+}
+
+/* ===== FULLSCREEN ===== */
 .image-gallery {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .image-gallery:hover {
     filter: brightness(1.05) contrast(1.05);
     box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
@@ -438,7 +494,9 @@ h1 {
     align-items: center;
     cursor: pointer;
 }
+
 .fullscreen-modal.active { display: flex; }
+
 .fullscreen-modal img {
     max-width: 90vw;
     max-height: 90vh;
@@ -446,6 +504,7 @@ h1 {
     border-radius: 12px;
     box-shadow: 0 0 40px rgba(0,0,0,0.5);
 }
+
 .fullscreen-close {
     position: absolute;
     top: 20px;
@@ -459,8 +518,13 @@ h1 {
     font-weight: bold;
     transition: 0.2s;
 }
-.fullscreen-close:hover { color: var(--accent); transform: scale(1.1); }
 
+.fullscreen-close:hover { 
+    color: var(--accent); 
+    transform: scale(1.1); 
+}
+
+/* ===== ИНФО ПАНЕЛЬ ===== */
 .info-panel {
     display: flex;
     flex-wrap: wrap;
@@ -469,6 +533,7 @@ h1 {
     border-bottom: 1px solid var(--border);
     transition: border 0.3s ease;
 }
+
 .avatar {
     flex: 1;
     min-width: 180px;
@@ -477,6 +542,7 @@ h1 {
     align-items: center;
     gap: 0.8rem;
 }
+
 .symbol-circle {
     width: 130px;
     height: 130px;
@@ -489,7 +555,13 @@ h1 {
     box-shadow: 0 4px 12px var(--shadow);
     transition: background 0.3s ease, border 0.3s ease;
 }
-.symbol-circle i { font-size: 3.8rem; color: var(--rune); transition: text-shadow 0.2s; }
+
+.symbol-circle i { 
+    font-size: 3.8rem; 
+    color: var(--rune); 
+    transition: text-shadow 0.2s; 
+}
+
 .badge {
     background: var(--bg);
     padding: 0.3rem 1rem;
@@ -499,17 +571,20 @@ h1 {
     border: 1px solid var(--border);
     transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
+
 .traits {
     flex: 2.5;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0.8rem 1.5rem;
 }
+
 .trait-item {
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.4rem;
     transition: border 0.3s ease;
 }
+
 .trait-label {
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -517,6 +592,7 @@ h1 {
     color: var(--text-muted);
     font-weight: 500;
 }
+
 .trait-value {
     font-size: 0.95rem;
     font-weight: 500;
@@ -524,11 +600,13 @@ h1 {
     margin-top: 0.2rem;
 }
 
+/* ===== ВНЕШНОСТЬ ===== */
 .appearance-section {
     padding: 1.2rem 2rem 0.8rem 2rem;
     border-bottom: 1px solid var(--border);
     transition: border 0.3s ease;
 }
+
 .appearance-title {
     font-family: 'Cormorant Garamont', serif;
     font-size: 1.2rem;
@@ -536,18 +614,27 @@ h1 {
     color: var(--text-muted);
     margin-bottom: 0.5rem;
 }
+
 .appearance-title i {
     color: var(--accent);
     margin-right: 8px;
 }
+
 .appearance-text {
     color: var(--text);
     font-size: 0.9rem;
     line-height: 1.6;
 }
 
-.content { padding: 1.2rem 2rem 2rem 2rem; }
-.section { margin-bottom: 2.2rem; }
+/* ===== КОНТЕНТ ===== */
+.content { 
+    padding: 1.2rem 2rem 2rem 2rem; 
+}
+
+.section { 
+    margin-bottom: 2.2rem; 
+}
+
 .section-title {
     font-family: 'Cormorant Garamont', serif;
     font-size: 1.7rem;
@@ -561,13 +648,19 @@ h1 {
     margin-bottom: 1rem;
     transition: color 0.3s ease, border 0.3s ease;
 }
-.section-title i { font-size: 1.4rem; color: var(--accent); }
+
+.section-title i { 
+    font-size: 1.4rem; 
+    color: var(--accent); 
+}
+
 .section-text {
     color: var(--text);
     text-align: justify;
     margin-bottom: 0.75rem;
     transition: color 0.3s ease;
 }
+
 .quote-mini {
     background: var(--bg);
     padding: 0.8rem 1.2rem;
@@ -578,10 +671,12 @@ h1 {
     color: var(--text);
     transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
+
 .pillar-list {
     list-style: none;
     margin-top: 0.5rem;
 }
+
 .pillar-list li {
     margin-bottom: 0.7rem;
     display: flex;
@@ -589,6 +684,7 @@ h1 {
     gap: 10px;
     color: var(--text);
 }
+
 .pillar-list li i {
     color: var(--rune);
     width: 24px;
@@ -596,7 +692,11 @@ h1 {
     margin-top: 3px;
 }
 
-.history-chapter { margin-bottom: 1.5rem; }
+/* ===== ГЛАВЫ ИСТОРИИ ===== */
+.history-chapter { 
+    margin-bottom: 1.5rem; 
+}
+
 .history-title {
     font-family: 'Cormorant Garamont', serif;
     font-size: 1.3rem;
@@ -608,8 +708,13 @@ h1 {
     gap: 8px;
     transition: color 0.3s ease;
 }
-.history-title i { font-size: 1.1rem; color: var(--accent); }
 
+.history-title i { 
+    font-size: 1.1rem; 
+    color: var(--accent); 
+}
+
+/* ===== КАРТИНКИ В ГЛАВАХ ===== */
 .chapter-image-left {
     float: left;
     width: 200px;
@@ -621,6 +726,7 @@ h1 {
     border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
+
 .chapter-image-right {
     float: right;
     width: 280px;
@@ -632,6 +738,7 @@ h1 {
     border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
+
 .chapter-image-left-lower {
     float: left;
     width: 200px;
@@ -643,12 +750,16 @@ h1 {
     border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
-.chapter-image-left img, .chapter-image-right img, .chapter-image-left-lower img {
+
+.chapter-image-left img, 
+.chapter-image-right img, 
+.chapter-image-left-lower img {
     width: 100%;
     height: auto;
     display: block;
     cursor: pointer;
 }
+
 .image-caption {
     font-size: 0.65rem;
     color: var(--text-muted);
@@ -661,6 +772,7 @@ h1 {
     transition: color 0.3s ease, background 0.3s ease, border 0.3s ease;
 }
 
+/* ===== ВОСПОМИНАНИЯ (MEMORY WHISPER) ===== */
 .memory-whisper {
     background: rgba(234, 245, 224, 0.08);
     padding: 0.8rem 1.2rem;
@@ -672,9 +784,8 @@ h1 {
     font-size: 0.9rem;
     position: relative;
     transition: all 0.3s ease;
-    clear: both;
-    overflow: hidden;
 }
+
 .memory-whisper::before {
     content: '✦';
     position: absolute;
@@ -683,11 +794,13 @@ h1 {
     color: var(--accent);
     font-size: 1.2rem;
 }
+
 .memory-whisper .whisper-name {
     font-weight: 700;
     color: var(--text);
     font-style: normal;
 }
+
 .memory-whisper .whisper-relation {
     font-size: 0.7rem;
     color: var(--accent);
@@ -695,6 +808,7 @@ h1 {
     letter-spacing: 1px;
     font-style: normal;
 }
+
 .memory-whisper i {
     color: var(--accent);
     margin-right: 6px;
@@ -708,6 +822,8 @@ hr {
     background: linear-gradient(to right, var(--border), transparent);
     margin: 1rem 0;
 }
+
+/* ===== ФУТЕР ===== */
 .footer-note {
     text-align: center;
     font-size: 0.7rem;
@@ -718,16 +834,19 @@ hr {
     transition: color 0.3s ease, border 0.3s ease, background 0.3s ease;
 }
 
+/* ===== АНИМАЦИИ ===== */
 .fade-item {
     opacity: 0;
     transform: translateY(12px);
     animation: fadeInUp 0.6s ease forwards;
 }
+
 .fade-item:nth-child(1) { animation-delay: 0.05s; }
 .fade-item:nth-child(2) { animation-delay: 0.10s; }
 .fade-item:nth-child(3) { animation-delay: 0.15s; }
 .fade-item:nth-child(4) { animation-delay: 0.20s; }
 .fade-item:nth-child(5) { animation-delay: 0.25s; }
+
 @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(12px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -738,28 +857,45 @@ hr {
     transform: translateY(10px);
     animation: fadeInUp 0.5s ease forwards;
 }
+
 .section-title { animation-delay: 0s; }
 .history-title { animation-delay: 0.02s; }
 
+/* ===== АДАПТИВ ===== */
 @media (max-width: 600px) {
-    .chapter-image-left, .chapter-image-right, .chapter-image-left-lower {
+    .chapter-image-left, 
+    .chapter-image-right, 
+    .chapter-image-left-lower {
         float: none;
         width: 100%;
         max-width: 280px;
         margin: 0 auto 1rem auto;
     }
+    
     .header-buttons {
         position: static;
         margin-top: 1rem;
         justify-content: center;
     }
-    .header { display: flex; flex-direction: column; gap: 0.5rem; }
-    .theme-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+    
+    .header { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 0.5rem; 
+    }
+    
+    .theme-grid { 
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+    }
 }
+
 @media (max-width: 700px) {
     body { padding: 1rem; }
     h1 { font-size: 2rem; }
-    .info-panel, .content { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .info-panel, .content { 
+        padding-left: 1.2rem; 
+        padding-right: 1.2rem; 
+    }
     .section-title { font-size: 1.4rem; }
     .history-title { font-size: 1.1rem; }
 }
