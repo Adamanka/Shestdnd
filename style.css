@@ -695,6 +695,7 @@ h1 {
 /* ===== ГЛАВЫ ИСТОРИИ ===== */
 .history-chapter { 
     margin-bottom: 1.5rem; 
+    overflow: hidden;
 }
 
 .history-title {
@@ -772,7 +773,13 @@ h1 {
     transition: color 0.3s ease, background 0.3s ease, border 0.3s ease;
 }
 
-/* ===== ВОСПОМИНАНИЯ (MEMORY WHISPER) ===== */
+/* ===== ОТСТУПЫ ДЛЯ ТЕКСТА ВОКРУГ КАРТИНОК ===== */
+.section-text {
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 .memory-whisper {
     background: rgba(234, 245, 224, 0.08);
     padding: 0.8rem 1.2rem;
@@ -784,6 +791,9 @@ h1 {
     font-size: 0.9rem;
     position: relative;
     transition: all 0.3s ease;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .memory-whisper::before {
