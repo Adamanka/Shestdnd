@@ -89,26 +89,57 @@ themeCards.forEach(card => {
 
 initTheme();
 
-// ===== ПАРАЛЛАКС СМЕНА ФОНА =====
+// ===== ПАРАЛЛАКС СМЕНА ФОНА ДЛЯ КАЖДОЙ ГЛАВЫ =====
 function updateBackgroundOnScroll() {
-    const chapter6 = document.querySelector('.history-chapter[data-chapter="6"]');
-    if (!chapter6) return;
-    const rect = chapter6.getBoundingClientRect();
+    const chapters = document.querySelectorAll('.history-chapter');
     const windowHeight = window.innerHeight;
-    let opacity = 0;
-    if (rect.top <= windowHeight * 0.6) {
-        opacity = Math.min(1, Math.max(0, (windowHeight * 0.6 - rect.top) / (windowHeight * 0.3)));
-    }
-    const bg1 = document.querySelector('.parallax-bg-1');
-    const bg2 = document.querySelector('.parallax-bg-2');
-    if (bg1 && bg2) {
-        bg1.style.opacity = 1 - opacity;
-        bg2.style.opacity = opacity;
+    
+    // Получаем все фоны
+    const bgElements = [
+        document.querySelector('.parallax-bg-1'),
+        document.querySelector('.parallax-bg-2'),
+        document.querySelector('.parallax-bg-3'),
+        document.querySelector('.parallax-bg-4'),
+        document.querySelector('.parallax-bg-5'),
+        document.querySelector('.parallax-bg-6')
+    ];
+    
+    // Сначала скрываем все фоны
+    bgElements.forEach(bg => {
+        if (bg) bg.style.opacity = '0';
+    });
+    
+    // Проходим по каждой главе
+    chapters.forEach((chapter, index) => {
+        const rect = chapter.getBoundingClientRect();
+        const chapterCenter = rect.top + rect.height / 2;
+        
+        // Если глава видна на экране (центр главы в пределах видимости)
+        if (chapterCenter > 0 && chapterCenter < windowHeight) {
+            const bgIndex = Math.min(index, 5); // индекс фона (0-5)
+            if (bgElements[bgIndex]) {
+                bgElements[bgIndex].style.opacity = '1';
+            }
+        }
+    });
+    
+    // Если ни одна глава не видна (начало страницы) — показываем первый фон
+    let anyVisible = false;
+    chapters.forEach((chapter) => {
+        const rect = chapter.getBoundingClientRect();
+        if (rect.top < windowHeight && rect.bottom > 0) {
+            anyVisible = true;
+        }
+    });
+    
+    if (!anyVisible) {
+        if (bgElements[0]) bgElements[0].style.opacity = '1';
     }
 }
 
 window.addEventListener('scroll', updateBackgroundOnScroll);
 window.addEventListener('resize', updateBackgroundOnScroll);
+window.addEventListener('load', updateBackgroundOnScroll);
 updateBackgroundOnScroll();
 
 console.log('Квента Шесть загружена! 🐰');
