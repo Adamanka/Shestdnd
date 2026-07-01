@@ -94,7 +94,6 @@ function updateBackgroundOnScroll() {
     const chapters = document.querySelectorAll('.history-chapter');
     const windowHeight = window.innerHeight;
     
-    // Получаем все фоны
     const bgElements = [
         document.querySelector('.parallax-bg-1'),
         document.querySelector('.parallax-bg-2'),
@@ -104,26 +103,22 @@ function updateBackgroundOnScroll() {
         document.querySelector('.parallax-bg-6')
     ];
     
-    // Сначала скрываем все фоны
     bgElements.forEach(bg => {
         if (bg) bg.style.opacity = '0';
     });
     
-    // Проходим по каждой главе
     chapters.forEach((chapter, index) => {
         const rect = chapter.getBoundingClientRect();
         const chapterCenter = rect.top + rect.height / 2;
         
-        // Если глава видна на экране (центр главы в пределах видимости)
         if (chapterCenter > 0 && chapterCenter < windowHeight) {
-            const bgIndex = Math.min(index, 5); // индекс фона (0-5)
+            const bgIndex = Math.min(index, 5);
             if (bgElements[bgIndex]) {
                 bgElements[bgIndex].style.opacity = '1';
             }
         }
     });
     
-    // Если ни одна глава не видна (начало страницы) — показываем первый фон
     let anyVisible = false;
     chapters.forEach((chapter) => {
         const rect = chapter.getBoundingClientRect();
@@ -142,4 +137,106 @@ window.addEventListener('resize', updateBackgroundOnScroll);
 window.addEventListener('load', updateBackgroundOnScroll);
 updateBackgroundOnScroll();
 
-console.log('Квента Шесть загружена! 🐰');
+// ===== МУЗЫКА =====
+const music1 = document.getElementById('musicCh1-2');
+const music2 = document.getElementById('musicCh3-6');
+const musicBtn = document.getElementById('musicBtn');
+let isMusicPlaying = false;
+let currentTrack = '1-2';
+
+// Функция переключения музыки
+function switchMusic(track) {
+    if (track === '3-6' && currentTrack !== '3-6') {
+        music1.pause();
+        music1.currentTime = 0;
+        if (isMusicPlaying) {
+            music2.play().catch(() => {});
+        }
+        currentTrack = '3-6';
+        console.log('🎵 Переключено на музыку для глав 3-6');
+    } else if (track === '1-2' && currentTrack !== '1-2') {
+        music2.pause();
+        music2.currentTime = 0;
+        if (isMusicPlaying) {
+            music1.play().catch(() => {});
+        }
+        currentTrack = '1-2';
+        console.log('🎵 Переключено на музыку для глав 1-2');
+    }
+}
+
+// Функция воспроизведения/паузы
+function toggleMusic() {
+    if (isMusicPlaying) {
+        music1.pause();
+        music2.pause();
+        isMusicPlaying = false;
+        musicBtn.innerHTML = '<i class="fas fa-music"></i> Музыка';
+        musicBtn.classList.remove('playing');
+        console.log('🔇 Музыка остановлена');
+    } else {
+        if (currentTrack === '1-2') {
+            music1.play().catch(() => {
+                console.log('⚠️ Автозапуск заблокирован браузером');
+            });
+        } else {
+            music2.play().catch(() => {
+                console.log('⚠️ Автозапуск заблокирован браузером');
+            });
+        }
+        isMusicPlaying = true;
+        musicBtn.innerHTML = '<i class="fas fa-volume-up"></i> Выкл. музыку';
+        musicBtn.classList.add('playing');
+        console.log('🔊 Музыка включена');
+    }
+}
+
+// Кнопка музыки
+musicBtn.addEventListener('click', toggleMusic);
+
+// Смена музыки при скролле к 3-й главе
+function updateMusicOnScroll() {
+    const chapters = document.querySelectorAll('.history-chapter');
+    const windowHeight = window.innerHeight;
+    
+    chapters.forEach((chapter) => {
+        const rect = chapter.getBoundingClientRect();
+        const chapterCenter = rect.top + rect.height / 2;
+        
+        if (chapterCenter > 0 && chapterCenter < windowHeight) {
+            const chapterNum = parseInt(chapter.dataset.chapter);
+            if (chapterNum <= 2) {
+                switchMusic('1-2');
+            } else if (chapterNum >= 3) {
+                switchMusic('3-6');
+            }
+        }
+    });
+}
+
+// Добавляем смену музыки в скролл
+window.addEventListener('scroll', updateMusicOnScroll);
+window.addEventListener('resize', updateMusicOnScroll);
+
+// ===== ПЕРВОНАЧАЛЬНЫЙ ЗАПУСК =====
+currentTrack = '1-2';
+music1.volume = 0.5;
+music2.volume = 0.5;
+
+// Пробуем включить музыку автоматически (если разрешено)
+document.addEventListener('click', function autoPlay() {
+    if (!isMusicPlaying) {
+        music1.play().then(() => {
+            isMusicPlaying = true;
+            musicBtn.innerHTML = '<i class="fas fa-volume-up"></i> Выкл. музыку';
+            musicBtn.classList.add('playing');
+            document.removeEventListener('click', autoPlay);
+            console.log('🎵 Музыка запущена автоматически');
+        }).catch(() => {
+            console.log('⚠️ Автозапуск заблокирован браузером. Нажмите кнопку "Музыка" для включения.');
+        });
+    }
+}, { once: true });
+
+console.log('🎵 Музыка загружена!');
+console.log('🐰 Квента Шесть загружена!');
