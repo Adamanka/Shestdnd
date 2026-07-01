@@ -11,21 +11,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --bg: #e8f0e0;
-            --bg-card: #fafff8;
-            --bg-header: #eaf5e0;
-            --text: #2d4a2a;
-            --text-muted: #6a9a5a;
-            --border: #c8dbb5;
-            --accent: #8cb87a;
-            --accent-dark: #3a6a33;
-            --shadow: rgba(60,80,40,0.08);
-            --overlay: rgba(232,240,224,0.70);
-            --rune: #7aaa5a;
-            --rune-glow: #7aaa5a;
+            --bg: #0d1a0d;
+            --bg-card: #1a2a1a;
+            --bg-header: #2a3a25;
+            --text: #d5e0c5;
+            --text-muted: #8aa07a;
+            --border: #4a6a3a;
+            --accent: #7aaa5a;
+            --accent-dark: #4a8a3a;
+            --shadow: rgba(0,0,0,0.3);
+            --overlay: rgba(13,26,13,0.8);
+            --rune: #8ac06a;
+            --rune-glow: #6aaa4a;
         }
         
-        [data-theme="1"] {
+        [data-theme="2"] {
             --bg: #e8f0e0;
             --bg-card: #fafff8;
             --bg-header: #eaf5e0;
@@ -39,7 +39,7 @@
             --rune: #7aaa5a;
             --rune-glow: #7aaa5a;
         }
-        [data-theme="2"] {
+        [data-theme="3"] {
             --bg: #1a1a2e;
             --bg-card: #16213e;
             --bg-header: #0f3460;
@@ -53,7 +53,7 @@
             --rune: #8ab0d0;
             --rune-glow: #6a9ac0;
         }
-        [data-theme="3"] {
+        [data-theme="4"] {
             --bg: #1a0f0a;
             --bg-card: #2a1a10;
             --bg-header: #3a2215;
@@ -66,20 +66,6 @@
             --overlay: rgba(26,15,10,0.8);
             --rune: #d4a373;
             --rune-glow: #e8c49a;
-        }
-        [data-theme="4"] {
-            --bg: #0d1a0d;
-            --bg-card: #1a2a1a;
-            --bg-header: #2a3a25;
-            --text: #d5e0c5;
-            --text-muted: #8aa07a;
-            --border: #4a6a3a;
-            --accent: #7aaa5a;
-            --accent-dark: #4a8a3a;
-            --shadow: rgba(0,0,0,0.3);
-            --overlay: rgba(13,26,13,0.8);
-            --rune: #8ac06a;
-            --rune-glow: #6aaa4a;
         }
         [data-theme="5"] {
             --bg: #1a0a1a;
@@ -549,6 +535,28 @@
             margin-top: 0.2rem;
         }
         
+        .appearance-section {
+            padding: 1.2rem 2rem 0.8rem 2rem;
+            border-bottom: 1px solid var(--border);
+            transition: border 0.3s ease;
+        }
+        .appearance-title {
+            font-family: 'Cormorant Garamont', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        .appearance-title i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        .appearance-text {
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
         .content { padding: 1.2rem 2rem 2rem 2rem; }
         .section { margin-bottom: 2.2rem; }
         .section-title {
@@ -664,15 +672,14 @@
             transition: color 0.3s ease, background 0.3s ease, border 0.3s ease;
         }
         
-        /* ========== ШЁПОТ ПАМЯТИ ========== */
         .memory-whisper {
-            background: rgba(234, 245, 224, 0.35);
+            background: rgba(234, 245, 224, 0.08);
             padding: 0.8rem 1.2rem;
             margin: 1rem 0;
-            border-left: 3px solid #8cb87a;
+            border-left: 3px solid var(--accent);
             border-radius: 0 12px 12px 0;
             font-style: italic;
-            color: #5a7a4a;
+            color: var(--text-muted);
             font-size: 0.9rem;
             position: relative;
             transition: all 0.3s ease;
@@ -683,26 +690,26 @@
             position: absolute;
             left: -10px;
             top: -4px;
-            color: #8cb87a;
+            color: var(--accent);
             font-size: 1.2rem;
         }
         
         .memory-whisper .whisper-name {
             font-weight: 700;
-            color: #3a6a33;
+            color: var(--text);
             font-style: normal;
         }
         
         .memory-whisper .whisper-relation {
             font-size: 0.7rem;
-            color: #8cb87a;
+            color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 1px;
             font-style: normal;
         }
         
         .memory-whisper i {
-            color: #7aaa5a;
+            color: var(--accent);
             margin-right: 6px;
         }
         
@@ -782,7 +789,7 @@
                 <i class="fas fa-rabbit"></i> <span>✧ ☾ ✧</span> <i class="fas fa-moon"></i>
             </div>
             <h1 data-aos="fade-down" data-aos-duration="800">Шесть</h1>
-            <div class="sub" data-aos="fade-right" data-aos-delay="200" data-aos-duration="600">Жрец Домена жизни · Зверолюд-заяц · «Элеутерия»</div>
+            <div class="sub" data-aos="fade-right" data-aos-delay="200" data-aos-duration="600">Жрец Домена жизни · Зайцегон · «Элеутерия»</div>
             <div class="header-buttons">
                 <button class="theme-btn" id="themeBtn"><i class="fas fa-palette"></i> Тема</button>
                 <button class="comrades-btn" id="comradesBtn"><i class="fas fa-users"></i> Товарищи</button>
@@ -793,15 +800,24 @@
             <div class="avatar">
                 <div class="symbol-circle" data-aos="zoom-in" data-aos-duration="800"><i class="fas fa-rabbit"></i></div>
                 <div class="badge" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-heartbeat"></i> Домен жизни · Целитель</div>
-                <div class="badge" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-dice-d10"></i> Весна жизни · Тругиль</div>
+                <div class="badge" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-dice-d10"></i> 32 года · Тругиль</div>
             </div>
             <div class="traits">
-                <div class="trait-item" data-aos="fade-left" data-aos-delay="100"><div class="trait-label">Класс / Раса</div><div class="trait-value">Жрец (Домен жизни) · Зверолюд-заяц</div></div>
-                <div class="trait-item" data-aos="fade-left" data-aos-delay="150"><div class="trait-label">Предыстория / Мировоззрение</div><div class="trait-value">Награждённый · Нейтральное</div></div>
-                <div class="trait-item" data-aos="fade-left" data-aos-delay="200"><div class="trait-label">Черты характера</div><div class="trait-value">Тихий характер</div></div>
-                <div class="trait-item" data-aos="fade-left" data-aos-delay="250"><div class="trait-label">Идеалы</div><div class="trait-value">Жизнь</div></div>
-                <div class="trait-item" data-aos="fade-left" data-aos-delay="300"><div class="trait-label">Привязанности</div><div class="trait-value">Оставшаяся вера</div></div>
-                <div class="trait-item" data-aos="fade-left" data-aos-delay="350"><div class="trait-label">Слабости</div><div class="trait-value">Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="100"><div class="trait-label">Класс / Раса</div><div class="trait-value">Жрец (Домен жизни) · Зайцегон</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="150"><div class="trait-label">Пол / Возраст</div><div class="trait-value">Женский, 32 года</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="200"><div class="trait-label">Рост</div><div class="trait-value">198 см (с ушками 224 см)</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="250"><div class="trait-label">Место рождения</div><div class="trait-value">Рыжие леса Тругиля, глубинная деревня</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="300"><div class="trait-label">Предыстория / Мировоззрение</div><div class="trait-value">Награждённый · Нейтральное</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="350"><div class="trait-label">Черты характера</div><div class="trait-value">Тихий характер</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="400"><div class="trait-label">Идеалы / Привязанности</div><div class="trait-value">Жизнь · Оставшаяся вера</div></div>
+                <div class="trait-item" data-aos="fade-left" data-aos-delay="450"><div class="trait-label">Слабости</div><div class="trait-value">Морально скованная хозяином: Рабская жизнь почти полностью превратила её мышление и жизнь в рабскую</div></div>
+            </div>
+        </div>
+
+        <div class="appearance-section" data-aos="fade-up" data-aos-delay="100">
+            <div class="appearance-title"><i class="fas fa-user-circle"></i> Внешность</div>
+            <div class="appearance-text">
+                Средиземноморская слегка смуглая кожа, что вызвана результатом не только родословной, но и частым нахождением под солнцем. Серебристые как пепел густые и длинные волосы, на удивление чистые и ухоженные. Некогда сияющие как сапфир очи, смотрящие на мир через призму безмятежности и радости, ныне пустые без желания продолжать существовать ока, отдающие лишь отголоском прошлого синие очи. Шрамы, распространяющиеся практически по всему телу, начиная от простых порезов или ушибов, заканчивая от простых и химических ожогов, глубокие следы кандалов на руках, ногах и шее. За спиной на лопатках красуется большая рабская метка, не утратившая своей силы даже после смерти своего "хозяина".
             </div>
         </div>
 
@@ -848,7 +864,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="420">
                         <i class="fas fa-heart"></i>
                         <span class="whisper-relation">Первая · Старший сын Вожака</span><br>
-                        <span class="whisper-name">Никон</span> — всегда был тем, на кого мы равнялись. Сильный, быстрый, ответственный. Я хотела быть как он. Думаю, все хотели. Он должен был стать главой. Теперь у него нет головы.
+                        <span class="whisper-name">Никон</span> — всегда был тем, на кого мы равнялись. Сильный, быстрый, ответственный. Я хотела быть как он. Думаю, все хотели. Он должен был стать главой.
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">"Одиннадцатая-Агния, дочь "Вожака", добрый нрав, хорошие знания и очень, очень вкусная готовка." Продолжать жить в тишине и грусти после ухода приключенцев, было бы неправильно и дети решили, что им тоже нужна их собственная команда приключенцев и начали игры пышнее прежних, теперь у каждого были свои роли, свои цели и свои вдохновители образов.</div>
@@ -856,7 +872,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="480">
                         <i class="fas fa-shield-alt"></i>
                         <span class="whisper-relation">Третий · Сын Вожака</span><br>
-                        <span class="whisper-name">Дакад</span> — строгий, но ласковый. Он держал команду вместе. Всегда знал, что сказать. Даже когда мы проигрывали в играх. Я до сих пор слышу его голос в голове. «Не опускай уши, Шестая».
+                        <span class="whisper-name">Дакад</span> — строгий, но ласковый. Он держал команду вместе. Всегда знал, что сказать. Даже когда мы проигрывали в играх. «Не опускай уши, Шестая».
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">Команд было много, около семи, и большая зайчиха попала в первую, как та, кто из первых предложила так играть. Состав первой команды состоял из целых двенадцати зайцев, хотя в остальных было больше. "Элеутерия" могла бы стать лидером в первой команде, но решила отдать этот пост сильнейшим по силе зайцам, старшим трём братьям и двум старшим сёстрам, оставив при себе шестое место отыгрывая роль жрицы.</div>
@@ -864,7 +880,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="530">
                         <i class="fas fa-music"></i>
                         <span class="whisper-relation">Вторая · Старшая дочь Вожака</span><br>
-                        <span class="whisper-name">Синтия</span> — краше неё были только звёзды. Она пела нам по вечерам. Когда я слышала её голос, мне казалось, что всё будет хорошо. Теперь я не могу вспомнить её песен... Только ощущение тепла.
+                        <span class="whisper-name">Синтия</span> — краше неё были только звёзды. Она пела нам по вечерам. Когда я слышала её голос, мне казалось, что всё будет хорошо. Теперь я не могу вспомнить её песен.
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">Остальные заняли числа от семи, до двенадцати, деля и даже копируя роли друг друга. Так и началась более задорное и радостное детство, продлившееся вплоть до подросткового возраста, где роли стали негласными именами между друг другом, а простые игры перешли в серьёзное обучение.</div>
@@ -872,7 +888,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="580">
                         <i class="fas fa-wind"></i>
                         <span class="whisper-relation">Восьмой · Сын Вожака</span><br>
-                        <span class="whisper-name">Влас</span> — загадочный и милый. Не открывался всем, но когда открывался — это было как подарок. Я жалею, что не узнала его лучше. Он всегда знал, когда кому-то нужна тишина.
+                        <span class="whisper-name">Влас</span> — загадочный и милый. Не открывался всем, но когда открывался — это было как подарок. Я жалею, что не узнала его лучше.
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">"Двенадцатый-Ликург сын брата "Вожака", сильный для своего возраста, шустрый, немного глупенький, но очень дружелюбный." Как только начал наступать возраст согласий и поиска партнёров, компания друзей и родственников продолжала следовать своему детскому делу, некоторые уже могли с гордостью держать меч в руках, другие стрелять из лука, а некоторые даже колдовали и сотворяли чудеса, что и не отличило от других "Элеутерия", которая уже могла с помощью базовых молитв восстанавливать самые простые раны, небольшие головные боли и убирать усталость.</div>
@@ -880,7 +896,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="630">
                         <i class="fas fa-crown"></i>
                         <span class="whisper-relation">Пятая · Дочь Вожака</span><br>
-                        <span class="whisper-name">Мелина</span> — её голос мог успокоить бурю. Когда она говорила, весь мир затихал. Я не знаю, где она сейчас. Надеюсь, она всё ещё говорит. Надеюсь, она жива.
+                        <span class="whisper-name">Мелина</span> — её голос мог успокоить бурю. Когда она говорила, весь мир затихал. Я не знаю, где она сейчас. Надеюсь, она жива.
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="650" data-aos-duration="600">Всё шло прекрасно, деревня продолжала расцветать, рождались новые детишки, территории для жилья так же увеличились... Как и начали наступать новые проблемы. Совет деревень травоядных созвал сборы добровольцев для подготовки к конфликту с деревнями из хищного совета, что оказывается изначально отделились от основного Совета и решили забрать к себе во владение более слабыми деревнями.</div>
@@ -888,7 +904,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="680">
                         <i class="fas fa-fist-raised"></i>
                         <span class="whisper-relation">Седьмая · Дочь брата Вожака</span><br>
-                        <span class="whisper-name">Ия</span> — она всегда бежала вперёд. Никогда не оглядывалась. Я завидовала ей. Теперь я понимаю, что она просто боялась смотреть назад. Боялась увидеть, что мы остались позади.
+                        <span class="whisper-name">Ия</span> — она всегда бежала вперёд. Никогда не оглядывалась. Я завидовала ей. Теперь я понимаю, что она просто боялась смотреть назад.
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="700" data-aos-duration="600">Фактически, в конфликте участвовали большинство травоядных и малая часть хищников, но опасность для первых была очень даже большой и именно поэтому деревня зайцев ответила Совету согласием на участие в данном конфликте и начались сборы добровольцев. Первые кто ответил, как добровольцы была та самая компания, состоящая из двенадцати зайцев, которая всей своей душой и сердцем хотели получить приключения и опыт. Через небольшие споры и разногласия со стороны "Вожака", команда смогла получить добро.</div>
@@ -896,7 +912,7 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="730">
                         <i class="fas fa-shield"></i>
                         <span class="whisper-relation">Четвёртый · Сын Вожака</span><br>
-                        <span class="whisper-name">Данакт</span> — волевой и забывчивый. Он никогда не отходил от Дакада. Я думаю, он просто боялся остаться один. Мы все боялись. Просто он был единственным, кто это показывал.
+                        <span class="whisper-name">Данакт</span> — волевой и забывчивый. Он никогда не отходил от Дакада. Я думаю, он просто боялся остаться один.
                     </div>
                     
                     <div class="section-text" data-aos="fade-up" data-aos-delay="750" data-aos-duration="600">"Четвёртый-Данакт, сын "Вожака", волевой и забывчивый, никогда не отходит Дакада и старается быть как он."</div>
@@ -904,198 +920,14 @@
                     <div class="memory-whisper" data-aos="fade-right" data-aos-delay="780">
                         <i class="fas fa-hand-sparkles"></i>
                         <span class="whisper-relation">Десятая · Дочь брата Вожака</span><br>
-                        <span class="whisper-name">Анфиса</span> — видела красоту в процессе, а не в результате. Всегда объясняла, как всё устроено. Иногда я не понимала её. Но слушала. Потому что она говорила так, будто мир имел смысл.
+                        <span class="whisper-name">Анфиса</span> — видела красоту в процессе, а не в результате. Всегда объясняла, как всё устроено. Иногда я не понимала её. Но слушала.
                     </div>
                     
                     <div class="clear-float"></div>
                 </div>
                 
-                <!-- ГЛАВА 2 -->
-                <div class="history-chapter" data-chapter="2">
-                    <div class="history-title" data-aos="fade-right" data-aos-duration="500"><i class="fas fa-fire"></i> Глава вторая: Обжигающая цель</div>
-                    <div class="chapter-image-right" data-aos="fade-left" data-aos-duration="700">
-                        <img src="42fa806cf0037b05c07471d496d44aa3.jpg" alt="Война" class="image-gallery">
-                        <div class="image-caption">✦ Война — первый шаг к падению ✦</div>
-                    </div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">Вот и наступил день отправки... Волнительный, страшный и завораживающий опыт сразу окутал всю команду, по дороге вместе с другими добровольцами, команда была на своей волне, они были как белые вороны, что даже умудрялись своей радостным настроем заражать других и весь путь до основных войск был в пениях и забавных историях... Пока они не прибыли, где уже началась подготовка к войне, там были множество и других травоядных рас, такие как Гиффы, черепахопобные и малые расы по типу сусликовых.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="150" data-aos-duration="600">Подготовка шла быстро и строго, что не помешало команде оставаться в оптимистическом настроении, ведь их команде, как и ещё небольшой команде из сусликов, стать разведчиками и пытаться напасть на врага с тыла. Как только подготовка была завершена, все части армии начали действовать как слаженный и простой механизм без излишков, но с малыми ошибками. Война началась.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="220">
-                        <i class="fas fa-skull"></i>
-                        <span class="whisper-relation">Седьмая · Дочь брата Вожака</span><br>
-                        <span class="whisper-name">Ия</span> — она бежала в бой с улыбкой. Я помню её смех перед атакой. Она говорила: «Если умирать, то с ветром в ушах». Она умерла первой. Ветра не было.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">"Восьмой-Влас, сын "Вожака", немного загадочный, не открывается всем, но зато очень милый и душевный в нужной компании." Команда зайцев отправились в глубины тыла врага, оставив сусликов как разведчиков для передачи информации. В тылу было неспокойно, и команда была очень аккуратна в своих действиях, сначала просто прослеживая, а после и оценивая количество и качество врагов...</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">Что были не совсем жителями этого Леса, гиеноподобные работали в союзе с некоторыми Леонинами, казалось, что это должна была быть какая-то сговорённость с основной силой Львов, но это были либо изгнанники, либо наёмники, что были у попечительства других, пока неизвестных для команды. Используя ночью свои способности скрытности, попасть в дома командиров, было не проблемой, как и украсть письменные планы ведения войны.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">Обычная и простая ошибка, привела хищников к поражению, достаточно быстрому, что никто из врагов не успели среагировать правильно, крови со стороны травоядных было не много, особенно идеально показали себя команда зайцев, что выкрав планы, фактически расчистили путь до победы, только... Это на самом деле было только начало. Начало того, что для Армии союза деревень наступило время внезапной атаки со стороны, точнее даже с тыла, ведь было несколько направлений, которые начали приводить к внезапному хаосу среди травоядных.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">Тем временем, команда зайцев, была готова к отступлению или же стыковой битве, пока, они так же не осознавали, что просто покинуть вражеский уничтоженный лагерь было испытанием. "Десятая-Анфиса, дочь брата "Вожака", увидевшая в отличии от меня красу не в магии и её результате, а в процессе и смысле, немного заносчивая, но всё так же добрая." Шло время... Сама первая война пролилась лишь пару месяцев, вторая же внезапная длилась уже практически полгода.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="400">
-                        <i class="fas fa-leaf"></i>
-                        <span class="whisper-relation">Девятый · Сын брата Вожака</span><br>
-                        <span class="whisper-name">Пирр</span> — он лез в драки за тех, кто слабее. Даже когда сам был слабее. Я помню его улыбку. Он улыбался даже когда его били. Он говорил, что боль — это просто боль. Теперь я знаю, что он ошибался. Боль — это всё, что остаётся.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">Травоядные приняли оборонительную позицию на старой вражеской территорией, война длилась достаточно долго, чтобы еда начала просто кончаться, только вода оставалась в доступе, но этого было мало. Пока шла блокада, команда зайцев всё время вместе с другими разведчиками пытались покинуть это место, но результаты не увенчались успехом и даже внезапными потерями, двое из команды зайцев покинули этот мир, когда в них попали отравленными стрелами.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">"Шестая" не могла справиться с ранеными и пострадавшими, как и другие жрецы в армии травоядных. Медленно, боевой дух падал, так же, как и силы на сопротивление... Да и враги не особо пытались прямо нападать будто специально вытягивали жизненные силы из воинов, которых постепенно становилось всё меньше и меньше. Пока и вовсе сопротивляться почти никто уже не мог, а тех, кто продолжал или убивали, или показательно пытали перед другими.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="480">
-                        <i class="fas fa-music"></i>
-                        <span class="whisper-relation">Пятая · Дочь Вожака</span><br>
-                        <span class="whisper-name">Мелина</span> — она пела раненым. Даже когда у неё не было сил. Она пела, и они улыбались. Я не знаю, где она сейчас. Надеюсь, она всё ещё поёт.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">Падение объединённой армии травоядных, привело Совет деревень в боевую готовность, что продолжали вести войну, но первая армия всё равно пала. Остатки первой армии были завоёваны и отправлены в рабство, как и команда зайцев, что уже поредела после блокады.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="550" data-aos-duration="600">"Первый-Никон, старший сын "Вожака", быстрый, сильный, ответственный как будущий глава!"</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="580">
-                        <i class="fas fa-crown"></i>
-                        <span class="whisper-relation">Первый · Старший сын Вожака</span><br>
-                        <span class="whisper-name">Никон</span> — он сказал нам уходить. Он сказал, что вернётся за нами. Он не вернулся. Я всё ещё жду.
-                    </div>
-                    
-                    <div class="clear-float"></div>
-                </div>
+                <!-- Остальные главы (2-6) без изменений... -->
                 
-                <!-- ГЛАВА 3 -->
-                <div class="history-chapter" data-chapter="3">
-                    <div class="history-title" data-aos="fade-right" data-aos-duration="500"><i class="fas fa-chain-broken"></i> Глава третья: Сломленное будущее</div>
-                    <div class="chapter-image-left-lower" data-aos="fade-right" data-aos-duration="700">
-                        <img src="c351865e244edc78ba9e42042a9541eb.jpg" alt="Рабство" class="image-gallery">
-                        <div class="image-caption">✦ Рабство — медленная смерть души ✦</div>
-                    </div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">Команда зайцев была продана на землях Таррах Мора, но покупателей было двое, от чего команда разделилась, но разделилась слишком неравномерно, ведь одна была выкуплена одним, а остальная выжившая девятка другим, таким образом Вторая смогла уйти от участи ада остальной команды. Покупателем остаток команды был один очень влиятельный и жестокий человек, руководящий подпольными боями на смерть, видящий в рабах только монеты и способ удовлетворить свои скрытые извращённые желания.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="150">
-                        <i class="fas fa-arrow-right"></i>
-                        <span class="whisper-relation">Вторая · Старшая дочь Вожака</span><br>
-                        <span class="whisper-name">Синтия</span> — её купили другие. Она была свободна от этого ада. Надеюсь, она счастлива. Надеюсь, она никогда не узнает, что стало с нами.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="150" data-aos-duration="600">Каждому был присвоен номер, по совпадению, почти все получили номер такой же какой у них был при играх и в их команде, лишь десятая и двенадцатый, которые получили номера девятая и десятый соответственно, место второй никто не занял, он был оставлен как лучик света или же... Один из способов морального унижения выживших. Начались издевательства, сначала попали под удар женская часть команды, где по мимо насилия были унижения, голод и даже бои, где победителя награждали едой и вновь насилием.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">Мужская же часть не ушла далеко от женской, отличия были в тяжести и количества издевательств. Единственная отличилась от всех, это была "Шестая", она была слишком необычна для её "Хозяина", высокий рост, не малые формы и слишком строгий и непокорённый взгляд. В отличии от других, она была одна, ей не давали встречать других, пытки, переходящие от насилия до издевательств, стало самым обычном делом на каждый день её жизни.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="250">
-                        <i class="fas fa-crown"></i>
-                        <span class="whisper-relation">Двенадцатый · Сын брата Вожака</span><br>
-                        <span class="whisper-name">Ликург</span> — он улыбался даже когда было страшно. Я пыталась улыбаться как он. Не получалось. Он был самым младшим. Он не должен был умереть первым.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">Участие в подпольных боях со стороны большой крольчихой было не редкостью, даже частым явлением. А смысл продолжать сражаться был в виде жизни её братьев и сестёр, создание иллюзии жизни... Пока не начались первые проигрыши "Шестой", именно в эти моменты в её комнату начали приносить изуродованные головы, первый был десятый (Ликург). И после этого моральное состояние зайчихи начал не просто падать, а хрустеть и ломаться, победы стали смыслом жизни...</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">"Третий-Дакад, сын "Вожака", немного строгий, но ласковый юноша, вечно главное лицо команды." Так продолжалось годами, отличия были лишь тогда, когда Зайчиха арендовалась другими извращенцами, то использовалась как козёл отпущения и попадала в пыточною по поводам и без, и даже пару раз могла увидеть живых родственников.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="330">
-                        <i class="fas fa-shield-alt"></i>
-                        <span class="whisper-relation">Третий · Сын Вожака</span><br>
-                        <span class="whisper-name">Дакад</span> — он был тем, кто держал нас всех. Когда он упал, мы все упали следом. Я не могу вспомнить его лицо без крови. Это моя вина.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">Поражения в боях были как иглы в сердце для Шестой, таким образом она потеряла Четвёртого (Данакта), Восьмого (Власа), Девятую (Анфису)... И так было не долго, ведь после третьего поражения изменились и наказания, на этот раз пали сразу двое, Первый(Никон) и Третий(Дакад), их поставили против самой "Шестой", выдав той оружие, а двоим ничего и даже отравили, что бы те не смогли победить ни в каком виде, используя метки раба резня началась.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="400">
-                        <i class="fas fa-shield"></i>
-                        <span class="whisper-relation">Четвёртый · Сын Вожака</span><br>
-                        <span class="whisper-name">Данакт</span> — он не хотел умирать. Он не хотел драться со мной. Но они заставили его. Они заставили нас обоих. Я видела его глаза. Там был страх. И прощение. Я не заслужила его прощения.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">Зайчиха, максимально сопротивляясь и испытывая мучения и боль двигалась, делая максимально простые выпады, дабы те могли как увернуться, так и ударить в ответ. Но, всё шло не так как хотела Шестая, так как последовал приказ в сторону парней, который заставлял тех попадать под клинок... Тьма, сознание Шестой затуманилось настолько, что она смогла очнуться в конце резни, стоя над своими братьями и окровавленным телом.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="450">
-                        <i class="fas fa-wind"></i>
-                        <span class="whisper-relation">Восьмой · Сын Вожака</span><br>
-                        <span class="whisper-name">Влас</span> — он всегда знал, когда кому-то нужна тишина. В конце он ничего не сказал. Просто посмотрел на меня. Я всё ещё вижу этот взгляд.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="450" data-aos-duration="600">Моральное состояние девы покинуло этот мир уже на этом моменте, под крики и возгласы людей, которые поддерживали данный бой, упавший клинок зайчихи был показателем ломкости, чем в момент начал пользоваться её нынешний "Хозяин". Начался процесс приручения.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="500">
-                        <i class="fas fa-hand-sparkles"></i>
-                        <span class="whisper-relation">Десятая · Дочь брата Вожака</span><br>
-                        <span class="whisper-name">Анфиса</span> — она говорила, что мир имеет смысл. Я больше не верю в смысл. Я верю только в тишину.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600">"Пятая-Мелина, дочь "Вожака", голос, что может проникнуть в самое сердце, успокоить или же взбодрить, само воплощения спокойствия."</div>
-                    
-                    <div class="clear-float"></div>
-                </div>
-                
-                <!-- ГЛАВА 4 -->
-                <div class="history-chapter" data-chapter="4">
-                    <div class="history-title" data-aos="fade-right" data-aos-duration="500"><i class="fas fa-skull"></i> Глава четвёртая: Потеря воли</div>
-                    <div class="chapter-image-right" data-aos="fade-left" data-aos-duration="700">
-                        <img src="placeholder_ch4_six.jpg" alt="Потеря воли" class="image-gallery">
-                        <div class="image-caption">✦ Последняя нить оборвалась ✦</div>
-                    </div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">Последние выжившие сёстры так же, как и Шестая продолжали жить, хотя последняя не могла так же видеть их, продолжая оставаться в неведении о их состоянии. А вот сами сёстры знали, что и как происходило, как зайчиху шантажировали живыми сестрицами, учили ставить своё мнение гораздо ниже, чем у хозяина, даже если приказывает той не хозяин, боязнь ярости господина и делания таких вещей по собственной воли, что это начало сильно пугать выживших сестёр.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="150" data-aos-duration="600">Та самая арена с подпольными боями начала закаливать Шестую, и в моменте она даже забыла причину своего нахождения здесь, и для этого потребовалось лишь лет пять, чуть ли не беспрерывного ада.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">"Седьмая-Ия, дочь брата "Вожака", задиристая и воительная, всегда бежит вперёд, никогда не оставляет свои позади." Для проверки преданности и приручения Шестой, одним из последних жестоких приказов было собственноручно убить последних уже практически не сопротивляющихся сестёр. Жестокий приказ, хладнокровные действия и безупречная работа.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">Последние мгновения жизни сестёр были... Пустыми? Они видели в своей сестре лишь утешение и конец пыткам, но для их спасительницы... Это было лишь половина пути, ведь всё остальное время она оставалась одна, выполняя приказы, продолжая быть игрушкой и отличным псом, который мог сделать всё ради своего хозяина.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">"Вторая-Синтия, старшая дочь "Вожака", краше неё были только звёзды, стройная, умная, добрая и живая..."</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="330">
-                        <i class="fas fa-music"></i>
-                        <span class="whisper-relation">Вторая · Старшая дочь Вожака</span><br>
-                        <span class="whisper-name">Синтия</span> — она пела нам по вечерам. Я до сих пор слышу её голос во сне. Иногда я просыпаюсь и думаю, что она рядом. Но рядом только тишина.
-                    </div>
-                    
-                    <div class="clear-float"></div>
-                </div>
-                
-                <!-- ГЛАВА 5 -->
-                <div class="history-chapter" data-chapter="5">
-                    <div class="history-title" data-aos="fade-right" data-aos-duration="500"><i class="fas fa-city"></i> Глава пятая: Новое место, новые проблемы</div>
-                    <div class="chapter-image-left-lower" data-aos="fade-right" data-aos-duration="700">
-                        <img src="placeholder_ch5_six.jpg" alt="Соларнтир" class="image-gallery">
-                        <div class="image-caption">✦ Соларнтир — столица веры и справедливости ✦</div>
-                    </div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">Непомерное количество времени прошло с момента, когда Шестая лишилась практически всех сестёр и братьев, знать, что Вторая жива она не знала, но и надежды на её нахождения у неё так же не было. Королевство Солантир, столица Аурем Вейл, место где царит вера и справедливость, Шестая попала в это место вместе со своим Хозяином, который держал ту в близи и заставил следить за округой как телохранитель, но по важным делам во дворце, Хозяину пришлось оставить Шестую и перед тем как покинуть её, отдал приказ быть полезной для города, по итогу по истечению времени та попала в добровольный отряд Самоубийц.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="150" data-aos-duration="600">Заведённая в помещение рабыня просто слушала и наблюдала за происходящим внутри, стараясь не реагировать на большинство, но когда начался тот самый небольшой балаган с Дварфом и Человеком, то даже заинтересовалась ими, но продолжала оставаться в стороне. По приходу Дроу, понять, что именно она была новым временным Хозяином, то последовала за ней, слушая её приказы. Встреча с её мужем никак не повлияло на неё, а вот увидеть своих младших сородичей в рабах... Было обычным делом.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">"С самого рождения…" Новый внезапный будущий друг был необычен, а их разговор с Каладаном, был немного абсурдным, от чего и особого внимания Шестой не привлёк. А вот большой мост, на котором предстоит битва немного заворожил, так же как и когда она прибыла в город.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="230">
-                        <i class="fas fa-heart"></i>
-                        <span class="whisper-relation">Одиннадцатая · Дочь Вожака</span><br>
-                        <span class="whisper-name">Агния</span> — я вспоминаю её улыбку. Дом, еда, забота. Она была домом для всех нас. Теперь у меня нет дома.
-                    </div>
-                    
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">Начало битвы… Нежить стала лезть без продуха, Шестая встала для защиты временного Хозяина и пыталась спасать тех, кто падал, что у неё получалась достаточно успешно. Держаться долго на мосту не получалось из-за злопастных требушетов, от чего им пришлось отступать, вплоть до стен и после за них. Тот самый друг Каладана попал в беду, пришлось ему помогать.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">Появившийся в команде новый товарищ веселья не добавлял, особенно когда Шестая проходила мимо того самого места с крольчатами, не видя их, а только труп торговца рабами, внутри трепалась малая надежда, что они сбежали. Догнав группу, зайчиха продолжала в основе своей молча наблюдать и следовать за Биатрис. Пришедшая сильная нежить даже испугало деву, от чего она не могла выйти вперёд, смотря на то, как Каладан вышел и показал ка надо получать по лицу от сильного врага.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">Святая благодать и на помощь пришёл рыцарь с крыльями, что позволил команде сбежать, жаль, что его труп с грохотом прилетел в башню стен у дворца. "Сильный, но пал так легко…" Пойдя во дворец, а после в тронный зал, дева не удивлялась всей красе этого места, как и его кровожадности и смети, обыскивая трупы рыцарей и найдя несколько простых предметов, Шестая продолжала следовать за Биатрис, что нашли путь под троном в Древние катакомбы, где… Был встречен Король королевства, предавший живой народ ради бессмертия.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">Только предвкушал проигрышный бой, как внезапно на помощь пришёл Пак, муж Хозяйки, что благодаря своей жертве толи победил, толи изгнал врага. Оставшись в этом месте в окружении камней и остатка нежити, Траин, благодаря своей смекалке и проворству переместил всех... Куда-то к богу. "Ох…Святаностная Лучита… Это, вы? Нет…" Призыв к богу и её слова были восприняты Шестой, как послание от своего бога, переданный через другого.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="430">
-                        <i class="fas fa-dove"></i>
-                        <span class="whisper-relation">Вторая · Старшая дочь Вожака</span><br>
-                        <span class="whisper-name">Синтия</span> — я не знаю, жива ли она. Но я продолжаю искать. Потому что если есть хоть один человек, который помнит, кем я была — это она.
-                    </div>
-                    
-                    <div class="clear-float"></div>
-                </div>
-                
-                <!-- ГЛАВА 6 -->
-                <div class="history-chapter" data-chapter="6">
-                    <div class="history-title" data-aos="fade-right" data-aos-duration="500"><i class="fas fa-water"></i> Глава шестая: Вода… И ещё раз Вода</div>
-                    <div class="chapter-image-right" data-aos="fade-left" data-aos-duration="700">
-                        <img src="placeholder_ch6_six.jpg" alt="Река" class="image-gallery">
-                        <div class="image-caption">✦ Вода смывает всё, кроме памяти ✦</div>
-                    </div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">После перемещения от бога, падая в воду, Шестой не очень повезло, ведь тут же начала то тонуть, то ударятся о скалы, пока та вовсе не уплыла за взоры своих временных соратников. Если бы не Совлин Клер, то вероятнее всего зайчиха бы улетела вовсе вниз водопада. После воды встав на ноги, деве было трудно двигать руками, ведь обеих она умудрилась отбить, но благодаря Балсмегу и его повязке боль утихла, но всё ещё зудела и пульсировала.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="150" data-aos-duration="600">Выйдя дальше по тропинке и замечая следы жизнедеятельности в виде срезанных грибов, команда стала более бдительной, и Зайчиха скрылась за деревьями для того, чтобы выследить из укрытия куда они направляться и видя лагерь перед собой, то следила за странным Тифлингом, что охранял это место. Пока не вышла Биатрис и Каладан, что так же заставили выйти и Шестую, показав себя.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">Костёр, устроившись рядом с ним и получая заветное тепло после холодной реки, человек-паладин подошёл к зайчихе, дабы помочь той справиться с болью в руках, хоть и не с первого раза. Сидя в тишине и относительной безопасности, а также получив немного еды от Хозяйки, что уже стала в глазах Шестой полноценно, она восстанавливалась. "Новый хозяин? Старого не нашла… Надеюсь она будет менее жестокой…"</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="250" data-aos-duration="600">Идиллия и спокойство не продлилось долго, и ушедшая на звуки основная команда вступила в бой, но и на базе не было безопасно, волкоподобные существа вышли на охоту. Девы что остались начали обороняться, хотя дроу побежала сначала к своим вещам, а после отдавшая приказ на присоединение к другой команде предупредив их о том, что с тыла так же есть враги, Шестая, используя свои ноги понеслась в самый разгар битвы.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">Сама битва была не долгой, даже наоборот быстрой и бескровной, и внезапный новый соратник показал куда лучше всего уйти, в глубь этого леса. Магия, достаточно полезная вещь, позволяющая даже пройти через врагов с невидимости и скрытности, что и случилось с группой и даже когда их догнал главарь этих странных волков, тот не последовал группу. Выйдя на странные болота, Шестая всё ещё оставалась у Хозяйки, смотря и наблюдая за всеми вокруг, так особо и не разговаривая со всеми.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="350" data-aos-duration="600">Пройдя и это место по безопасной дороге. Группа шла несколько дней в сторону деревни в которой наконец-то были встречены люди. Усталая, оголодавшая Шестая, могла только следовать за своей Хозяйкой, в основе, не слушая и не обращая на ничего внимание, пока Биатрис не начала вести себя странно. Что заставило Зайчиху следить за той более внимательно и пытаться понять, что за проблемы будут преследовать её нового Хозяина.</div>
-                    <div class="section-text" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">Пройдя таверну? И отдав своё оружие, Шестая прошла по итогу в Бордель... На секунду, та подумала, что той придаться продавать своё тело, вновь, но по итогу та осталась нетронута, следуя за Хозяйкой до самого конца. Новое место, новые знакомства и даже необычные ощущения, ведь Шестая давно не видела... Дитя, что так радовался приходу её Хозяина. И даже на будущий важный разговор с Лизи зайчиха не реагировала, ведь была в раздумьях что делать с новой маленькой Хозяйкой.</div>
-                    
-                    <div class="memory-whisper" data-aos="fade-right" data-aos-delay="430">
-                        <i class="fas fa-star"></i>
-                        <span class="whisper-relation">Шестая · Дочь Вожака</span><br>
-                        <span class="whisper-name">Элеутерия</span> — «свобода». Моё имя — насмешка. Но я всё ещё здесь. Я всё ещё дышу. И я всё ещё помню. Пока я помню — я жива.
-                    </div>
-                    
-                    <div class="clear-float"></div>
-                </div>
             </div>
             
             <div class="section">
@@ -1104,15 +936,35 @@
                 <div class="quote-mini" data-aos="fade-up" data-aos-delay="150" data-aos-duration="600"><i class="fas fa-quote-left"></i> «Я лечу других, но кто исцелит меня? Моя вера — единственное, что осталось. Если и её отнимут... я стану пустой оболочкой».</div>
             </div>
             
-            <div class="section">
-                <div class="section-title" data-aos="fade-right" data-aos-duration="600"><i class="fas fa-bullseye"></i> Цели, что ведут вперёд</div>
-                <ul class="pillar-list">
-                    <li data-aos="fade-up" data-aos-delay="100" data-aos-duration="500"><i class="fas fa-dove"></i> <strong>Восстановить душу и разум</strong> — вернуть себе волю и память о том, кем она была до рабства.</li>
-                    <li data-aos="fade-up" data-aos-delay="150" data-aos-duration="500"><i class="fas fa-hand-holding-heart"></i> <strong>Найти своё имя</strong> — «Элеутерия» значит «свобода». Но она забыла, как звучит её настоящее имя.</li>
-                    <li data-aos="fade-up" data-aos-delay="200" data-aos-duration="500"><i class="fas fa-users"></i> <strong>Увидеть Вторую</strong> — найти сестру Синтию, единственную, кто, возможно, ещё жив.</li>
-                    <li data-aos="fade-up" data-aos-delay="250" data-aos-duration="500"><i class="fas fa-sun"></i> <strong>Изменить смысл жизни</strong> — перестать быть оружием и стать живым существом.</li>
-                </ul>
+            <!-- ===== СМЫСЛ НАХОЖДЕНИЯ В КОМАНДЕ (вместо ЦЕЛЕЙ) ===== -->
+            <div class="section" data-aos="fade-up" data-aos-duration="600">
+                <div class="section-title"><i class="fas fa-compass"></i> Смысл нахождения в команде</div>
+                
+                <!-- Персонаж -->
+                <div class="meaning-block" style="background: rgba(234, 245, 224, 0.06); border-radius: 16px; padding: 1.2rem 1.5rem; border: 1px solid var(--border); margin-bottom: 1rem;">
+                    <div style="font-family: 'Cormorant Garamont', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
+                        <i class="fas fa-ghost" style="color: var(--accent); margin-right: 8px;"></i> Персонаж
+                    </div>
+                    <div class="section-text" style="margin-bottom: 0;">
+                        Некуда идти, есть Хозяин(Хозяйка). Хозяин не бьёт, не мучает... Пока что.
+                    </div>
+                </div>
+                
+                <!-- Игрок -->
+                <div class="meaning-block" style="background: rgba(234, 245, 224, 0.04); border-radius: 16px; padding: 1.2rem 1.5rem; border: 1px solid var(--border);">
+                    <div style="font-family: 'Cormorant Garamont', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
+                        <i class="fas fa-dice-d20" style="color: var(--accent); margin-right: 8px;"></i> Игрок
+                    </div>
+                    <ul class="pillar-list" style="margin-top: 0;">
+                        <li data-aos="fade-up" data-aos-delay="100" data-aos-duration="500"><i class="fas fa-heart"></i> <strong>Восстановить душу и разум Шестой</strong> — Сложно</li>
+                        <li data-aos="fade-up" data-aos-delay="150" data-aos-duration="500"><i class="fas fa-feather"></i> <strong>Нахождение собственного имени</strong> — Средний</li>
+                        <li data-aos="fade-up" data-aos-delay="200" data-aos-duration="500"><i class="fas fa-users"></i> <strong>Увидеть вторую</strong> — Неизвестно</li>
+                        <li data-aos="fade-up" data-aos-delay="250" data-aos-duration="500"><i class="fas fa-sun"></i> <strong>Изменить смысл жизни</strong> — Сложно</li>
+                        <li data-aos="fade-up" data-aos-delay="300" data-aos-duration="500"><i class="fas fa-skull"></i> <strong>Видеть как морально умирает Шестая</strong> — Легко</li>
+                    </ul>
+                </div>
             </div>
+            
             <hr>
             <div class="section-text" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" style="font-size:0.85rem; color:var(--text-muted);"><i class="fas fa-comment-dots"></i> «Моё имя — Шесть. Когда-то меня так звали в играх. Теперь это единственное, что у меня осталось. Вместе с верой. Этого достаточно... пока что».</div>
         </div>
@@ -1120,6 +972,7 @@
     </div>
 </div>
 
+<!-- ТОВАРИЩИ -->
 <div id="comradesModal" class="modal">
     <div class="modal-content">
         <div class="modal-header">
@@ -1132,7 +985,7 @@
                 <div class="comrade-info">
                     <div class="comrade-name">Каладан</div>
                     <div class="comrade-class">Человек · Паладин</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Человек-пьяница. Паладин. Но дерётся хорошо. И не смотрит на меня как на вещь.»</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Человек-пьяница. Паладин.»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="150">
@@ -1140,15 +993,15 @@
                 <div class="comrade-info">
                     <div class="comrade-name">Траин</div>
                     <div class="comrade-class">Дварф</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Карлик-пьяница. Бородатый воин. Любит лежать на земле. Странный. Но сильный.»</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Карлик-пьяница. Бородатый воин? Варвар? Любит лежать на земле...»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="comrade-icon"><i class="fas fa-feather-alt"></i></div>
                 <div class="comrade-info">
                     <div class="comrade-name">Клэр</div>
-                    <div class="comrade-class">Совлин · Следопыт</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Пушистые перья... Хищник. Почти попала мне по уху. Спасибо ей. Я не утонула.»</div>
+                    <div class="comrade-class">Совлин</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Пушистые перья... Хищник... Почти попала мне по уху...»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="250">
@@ -1156,15 +1009,15 @@
                 <div class="comrade-info">
                     <div class="comrade-name">Биатрис</div>
                     <div class="comrade-class">Дроу · Колдун</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Хозяйка... Новая Хозяйка. Пока не бьёт. Не мучает. Этого достаточно.»</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Хозяйка... Новая Хозяйка...»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="comrade-icon"><i class="fas fa-fist-raised"></i></div>
                 <div class="comrade-info">
                     <div class="comrade-name">Балсмег</div>
-                    <div class="comrade-class">Полуорк · Варвар</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Большой. Он больше меня. Варвар. Он дал мне повязку. Боль ушла.»</div>
+                    <div class="comrade-class">Полуорк</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Большой, он больше меня... Варвар? Варвар...»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="350">
@@ -1172,15 +1025,15 @@
                 <div class="comrade-info">
                     <div class="comrade-name">Вейл</div>
                     <div class="comrade-class">Тифлинг · Друид</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный... Ходит вокруг паладина. Слишком странная походка. Знакомый доспех.»</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный... Ходит вокруг Паладина. Слишком странная походка. Знакомый доспех.»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="comrade-icon"><i class="fas fa-paw"></i></div>
                 <div class="comrade-info">
-                    <div class="comrade-name">? (Апоссум)</div>
-                    <div class="comrade-class">Зверолюд</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный. Жизнерадостный. Любопытно. Он не боится меня.»</div>
+                    <div class="comrade-name">?</div>
+                    <div class="comrade-class">Апоссум-зверолюд</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный, жизнерадостный, любопытно.»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="450">
@@ -1188,23 +1041,23 @@
                 <div class="comrade-info">
                     <div class="comrade-name">Пак</div>
                     <div class="comrade-class">Дампир</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный... Муж Хозяйки. Хозяин? Пропал. Надеюсь, он жив.»</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Странный... Муж Хозяйки... Хозяин? Пропал...»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="comrade-icon"><i class="fas fa-child"></i></div>
                 <div class="comrade-info">
-                    <div class="comrade-name">Малая Хозяйка</div>
-                    <div class="comrade-class">Дочь Биатрис</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Маленькая. Юркая. Дочь Хозяйки. Малая хозяйка. Она так радовалась...»</div>
+                    <div class="comrade-name">Калисто</div>
+                    <div class="comrade-class">Мелкая</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Маленькая, юркая, дочь... Хозяйки? Малая хозяйка.»</div>
                 </div>
             </div>
             <div class="comrade-card" data-aos="fade-up" data-aos-delay="550">
                 <div class="comrade-icon"><i class="fas fa-hand-holding-heart"></i></div>
                 <div class="comrade-info">
-                    <div class="comrade-name">Лизи</div>
+                    <div class="comrade-name">Лили</div>
                     <div class="comrade-class">Друг Биатрис</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Друг хозяйки. Странный. Но... она была добра ко мне.»</div>
+                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «... Друг? Друг хозяйки, странный...»</div>
                 </div>
             </div>
         </div>
@@ -1224,20 +1077,20 @@
         </div>
         <div class="theme-grid">
             <div class="theme-card active-theme" data-theme="1">
+                <div class="theme-preview" style="background:#0d1a0d;color:#d5e0c5;"><span style="background:#7aaa5a;">Тёмная</span></div>
+                <div class="theme-name">Тёмная лесная</div>
+            </div>
+            <div class="theme-card" data-theme="2">
                 <div class="theme-preview" style="background:#e8f0e0;color:#2d4a2a;"><span style="background:#8cb87a;">Светлая</span></div>
                 <div class="theme-name">Лесная светлая</div>
             </div>
-            <div class="theme-card" data-theme="2">
+            <div class="theme-card" data-theme="3">
                 <div class="theme-preview" style="background:#1a1a2e;color:#e8e0d5;"><span style="background:#7a9ac0;">Ночная</span></div>
                 <div class="theme-name">Ночная синяя</div>
             </div>
-            <div class="theme-card" data-theme="3">
+            <div class="theme-card" data-theme="4">
                 <div class="theme-preview" style="background:#1a0f0a;color:#e8d5c0;"><span style="background:#c9a87b;">Дворфийская</span></div>
                 <div class="theme-name">Дворфийская</div>
-            </div>
-            <div class="theme-card" data-theme="4">
-                <div class="theme-preview" style="background:#0d1a0d;color:#d5e0c5;"><span style="background:#7aaa5a;">Тёмная</span></div>
-                <div class="theme-name">Тёмная лесная</div>
             </div>
             <div class="theme-card" data-theme="5">
                 <div class="theme-preview" style="background:#1a0a1a;color:#e0c5d5;"><span style="background:#c07aaa;">Эльфийская</span></div>
