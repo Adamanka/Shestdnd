@@ -939,3 +939,116 @@ hr {
     .section-title { font-size: 1.4rem; }
     .history-title { font-size: 1.1rem; }
 }
+/* ===== ТОВАРИЩИ — ОБНОВЛЁННЫЕ СТИЛИ ===== */
+.comrade-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    transition: border 0.3s ease, background 0.3s ease;
+    border-radius: 12px;
+    margin: 0 -0.5rem;
+    padding: 0.8rem 0.5rem;
+}
+
+.comrade-card:hover {
+    background: rgba(234, 245, 224, 0.05);
+    border-radius: 12px;
+}
+
+.comrade-card:last-child { border-bottom: none; }
+
+.comrade-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.comrade-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.comrade-icon i {
+    font-size: 1.6rem;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.comrade-card:hover .comrade-icon {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(122, 170, 90, 0.15);
+}
+
+.comrade-info { 
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comrade-name { 
+    font-weight: 700; 
+    font-size: 1.1rem; 
+    color: var(--text); 
+}
+
+.comrade-class {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.2rem;
+}
+
+.comrade-thought {
+    font-size: 0.8rem;
+    color: var(--text);
+    font-style: italic;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+.comrade-thought i { 
+    color: var(--accent); 
+    margin-right: 4px;
+    opacity: 0.6;
+    font-size: 0.7rem;
+}
+
+/* ===== АДАПТИВ ДЛЯ МОДАЛКИ ===== */
+@media (max-width: 600px) {
+    .modal-content {
+        max-width: 95% !important;
+        margin: 0.5rem;
+    }
+    
+    .comrade-icon {
+        width: 46px;
+        height: 46px;
+    }
+    
+    .comrade-icon i {
+        font-size: 1.3rem;
+    }
+    
+    .comrade-name {
+        font-size: 0.95rem;
+    }
+    
+    .comrade-thought {
+        font-size: 0.7rem;
+    }
+}
