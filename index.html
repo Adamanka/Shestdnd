@@ -8,37 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* ===== КНОПКА МУЗЫКИ ===== */
-        .music-btn {
-            background: var(--accent-dark);
-            border: 1px solid var(--accent);
-            color: #f0f8ea;
-            padding: 0.5rem 1rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Inter', sans-serif;
-            z-index: 10;
-        }
-        .music-btn:hover {
-            background: var(--accent);
-            color: #1f3a1a;
-            transform: scale(1.02);
-        }
-        .music-btn.playing i {
-            animation: spin 2s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
 </head>
 <body>
 <!-- ===== ФОНЫ ДЛЯ КАЖДОЙ ГЛАВЫ ===== -->
@@ -283,7 +252,6 @@
             <div class="section" data-aos="fade-up" data-aos-duration="600">
                 <div class="section-title"><i class="fas fa-compass"></i> Смысл нахождения в команде</div>
                 
-                <!-- Персонаж (ОБНОВЛЕНО) -->
                 <div class="meaning-block" style="background: rgba(234, 245, 224, 0.06); border-radius: 16px; padding: 1.2rem 1.5rem; border: 1px solid var(--border); margin-bottom: 1rem;">
                     <div style="font-family: 'Cormorant Garamont', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
                         <i class="fas fa-ghost" style="color: var(--accent); margin-right: 8px;"></i> Персонаж
@@ -293,7 +261,6 @@
                     </div>
                 </div>
                 
-                <!-- Игрок -->
                 <div class="meaning-block" style="background: rgba(234, 245, 224, 0.04); border-radius: 16px; padding: 1.2rem 1.5rem; border: 1px solid var(--border);">
                     <div style="font-family: 'Cormorant Garamont', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
                         <i class="fas fa-dice-d20" style="color: var(--accent); margin-right: 8px;"></i> Игрок
@@ -315,236 +282,6 @@
     </div>
 </div>
 
-<!-- ===== МОДАЛКА ТОВАРИЩЕЙ ===== -->
-<div id="comradesModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3><i class="fas fa-users"></i> Товарищи</h3>
-            <button class="modal-close" id="closeModalBtn">&times;</button>
-        </div>
-        <div class="comrade-list">
-            <!-- ===== СТАРЫЕ (ОБНОВЛЁННЫЕ) ===== -->
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="comrade-icon"><i class="fas fa-user"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Каладан</div>
-                    <div class="comrade-class">Человек · Паладин</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Пьяница...Гос...Кхм... Каладан. Ка-ла-дан... Госпо...Угх...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="comrade-icon"><i class="fas fa-hammer"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Траин</div>
-                    <div class="comrade-class">Дварф</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «...........Перевёртыш? Тело другое...Запах тот же....»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="comrade-icon"><i class="fas fa-feather-alt"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Клэр</div>
-                    <div class="comrade-class">Совлин</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Пушистые перья... Хищник... Почти попала мне по уху...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="comrade-icon"><i class="fas fa-moon"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Биатрис</div>
-                    <div class="comrade-class">Дроу · Колдун</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Хоз... Хозяин жив.... Тогда...Кто? Госпожа...Да, пока Госпожа.»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="comrade-icon"><i class="fas fa-fist-raised"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Балсмег</div>
-                    <div class="comrade-class">Полуорк</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Большой, он больше меня... Варвар? Варвар...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="comrade-icon"><i class="fas fa-leaf"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Вейл</div>
-                    <div class="comrade-class">Тифлинг · Друид</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Пьяница... Друг, товарищ? Госп...Ка-ла-дана... Друг Каладана. Друг... Угх...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="comrade-icon"><i class="fas fa-paw"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Ярон</div>
-                    <div class="comrade-class">Апоссум-зверолюд</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Лучник, странный и замкнутый. Жизнерадостный.»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="450">
-                <div class="comrade-icon"><i class="fas fa-skull"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Пак</div>
-                    <div class="comrade-class">Дампир</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «....................»</div>
-                </div>
-            </div>
-            
-            <!-- ===== НОВЫЕ ===== -->
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="comrade-icon"><i class="fas fa-book"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Клирик</div>
-                    <div class="comrade-class">Путешественник</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Кто он? Путешественник? Сказочник? Или...Тот кто видел что нельзя....»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="550">
-                <div class="comrade-icon"><i class="fas fa-fire"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Калида</div>
-                    <div class="comrade-class">Элементаль</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Элементаль, добрый... Она тут живёт или заточена?»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="600">
-                <div class="comrade-icon"><i class="fas fa-shield-alt"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Дарла</div>
-                    <div class="comrade-class">Паладин</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Высокая, большая... Но всё ещё меньше. Паладин и...Супруг? Густву?»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="650">
-                <div class="comrade-icon"><i class="fas fa-hands-praying"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Густав</div>
-                    <div class="comrade-class">Жрец</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Жрец...Может научит пользоваться магией?»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="700">
-                <div class="comrade-icon"><i class="fas fa-cat"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Львёнок Лу</div>
-                    <div class="comrade-class">Львёнок</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Лев поменьше...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="750">
-                <div class="comrade-icon"><i class="fas fa-cat"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Львица Крис</div>
-                    <div class="comrade-class">Львица</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Лев побольше...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="800">
-                <div class="comrade-icon"><i class="fas fa-chain"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">———</div>
-                    <div class="comrade-class">Хозяин</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Он... Жив... Метка не пропала, значит он жив...»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="850">
-                <div class="comrade-icon"><i class="fas fa-sun"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Светоносная Лучита</div>
-                    <div class="comrade-class">Божество</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Бог, за кем я иду?...Бог, чей свет всё ещё трепет во мне? Бог....Я, это ещё я?»</div>
-                </div>
-            </div>
-            
-            <!-- ===== СТАРЫЙ (КАЛИСТО) ===== -->
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="900">
-                <div class="comrade-icon"><i class="fas fa-child"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Калисто</div>
-                    <div class="comrade-class">Мелкая</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «Маленькая, юркая, дочь... Хозяйки? Малая хозяйка.»</div>
-                </div>
-            </div>
-            
-            <div class="comrade-card" data-aos="fade-up" data-aos-delay="950">
-                <div class="comrade-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                <div class="comrade-info">
-                    <div class="comrade-name">Лили</div>
-                    <div class="comrade-class">Друг Биатрис</div>
-                    <div class="comrade-thought"><i class="fas fa-quote-left"></i> «... Друг? Друг хозяйки, странный...»</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ===== FULLSCREEN ===== -->
-<div id="fullscreenModal" class="fullscreen-modal">
-    <button class="fullscreen-close" id="fullscreenCloseBtn">&times;</button>
-    <img id="fullscreenImage" src="" alt="Полноэкранный режим">
-</div>
-
-<!-- ===== МОДАЛКА ТЕМ ===== -->
-<div id="themeModal" class="theme-modal">
-    <div class="theme-modal-content">
-        <div class="theme-modal-header">
-            <h3><i class="fas fa-palette"></i> Выберите тему</h3>
-            <button class="theme-modal-close" id="themeModalClose">&times;</button>
-        </div>
-        <div class="theme-grid">
-            <div class="theme-card active-theme" data-theme="1">
-                <div class="theme-preview" style="background:#0d1a0d;color:#d5e0c5;"><span style="background:#7aaa5a;">Тёмная</span></div>
-                <div class="theme-name">Тёмная лесная</div>
-            </div>
-            <div class="theme-card" data-theme="2">
-                <div class="theme-preview" style="background:#e8f0e0;color:#2d4a2a;"><span style="background:#8cb87a;">Светлая</span></div>
-                <div class="theme-name">Лесная светлая</div>
-            </div>
-            <div class="theme-card" data-theme="3">
-                <div class="theme-preview" style="background:#1a1a2e;color:#e8e0d5;"><span style="background:#7a9ac0;">Ночная</span></div>
-                <div class="theme-name">Ночная синяя</div>
-            </div>
-            <div class="theme-card" data-theme="4">
-                <div class="theme-preview" style="background:#1a0f0a;color:#e8d5c0;"><span style="background:#c9a87b;">Дворфийская</span></div>
-                <div class="theme-name">Дворфийская</div>
-            </div>
-            <div class="theme-card" data-theme="5">
-                <div class="theme-preview" style="background:#1a0a1a;color:#e0c5d5;"><span style="background:#c07aaa;">Эльфийская</span></div>
-                <div class="theme-name">Эльфийская</div>
-            </div>
-            <div class="theme-card" data-theme="6">
-                <div class="theme-preview" style="background:#0a0a0a;color:#d0d0d0;"><span style="background:#8a8a8a;">Тёмная</span></div>
-                <div class="theme-name">Абсолютная тьма</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ===== АУДИО ===== -->
-<audio id="musicCh1-2" loop preload="auto">
-    <source src="d2s1%20-%20fish%20-%20Slowed%20Down%20(SPOTISAVER).mp3" type="audio/mpeg">
-</audio>
-<audio id="musicCh3-6" loop preload="auto">
-    <source src="Maebi%20-%20The%20Lobotomy%20(SPOTISAVER).mp3" type="audio/mpeg">
-</audio>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
 <!-- ===== МОДАЛКА ТОВАРИЩЕЙ ===== -->
 <div id="comradesModal" class="modal">
     <div class="modal-content" style="max-width: 650px;">
@@ -771,3 +508,58 @@
         </div>
     </div>
 </div>
+
+<!-- ===== FULLSCREEN ===== -->
+<div id="fullscreenModal" class="fullscreen-modal">
+    <button class="fullscreen-close" id="fullscreenCloseBtn">&times;</button>
+    <img id="fullscreenImage" src="" alt="Полноэкранный режим">
+</div>
+
+<!-- ===== МОДАЛКА ТЕМ ===== -->
+<div id="themeModal" class="theme-modal">
+    <div class="theme-modal-content">
+        <div class="theme-modal-header">
+            <h3><i class="fas fa-palette"></i> Выберите тему</h3>
+            <button class="theme-modal-close" id="themeModalClose">&times;</button>
+        </div>
+        <div class="theme-grid">
+            <div class="theme-card active-theme" data-theme="1">
+                <div class="theme-preview" style="background:#0d1a0d;color:#d5e0c5;"><span style="background:#7aaa5a;">Тёмная</span></div>
+                <div class="theme-name">Тёмная лесная</div>
+            </div>
+            <div class="theme-card" data-theme="2">
+                <div class="theme-preview" style="background:#e8f0e0;color:#2d4a2a;"><span style="background:#8cb87a;">Светлая</span></div>
+                <div class="theme-name">Лесная светлая</div>
+            </div>
+            <div class="theme-card" data-theme="3">
+                <div class="theme-preview" style="background:#1a1a2e;color:#e8e0d5;"><span style="background:#7a9ac0;">Ночная</span></div>
+                <div class="theme-name">Ночная синяя</div>
+            </div>
+            <div class="theme-card" data-theme="4">
+                <div class="theme-preview" style="background:#1a0f0a;color:#e8d5c0;"><span style="background:#c9a87b;">Дворфийская</span></div>
+                <div class="theme-name">Дворфийская</div>
+            </div>
+            <div class="theme-card" data-theme="5">
+                <div class="theme-preview" style="background:#1a0a1a;color:#e0c5d5;"><span style="background:#c07aaa;">Эльфийская</span></div>
+                <div class="theme-name">Эльфийская</div>
+            </div>
+            <div class="theme-card" data-theme="6">
+                <div class="theme-preview" style="background:#0a0a0a;color:#d0d0d0;"><span style="background:#8a8a8a;">Тёмная</span></div>
+                <div class="theme-name">Абсолютная тьма</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== АУДИО ===== -->
+<audio id="musicCh1-2" loop preload="auto">
+    <source src="d2s1%20-%20fish%20-%20Slowed%20Down%20(SPOTISAVER).mp3" type="audio/mpeg">
+</audio>
+<audio id="musicCh3-6" loop preload="auto">
+    <source src="Maebi%20-%20The%20Lobotomy%20(SPOTISAVER).mp3" type="audio/mpeg">
+</audio>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
