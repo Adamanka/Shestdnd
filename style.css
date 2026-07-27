@@ -286,7 +286,7 @@ h1 {
 .modal-content {
     background: var(--bg-card);
     border-radius: 24px;
-    max-width: 500px;
+    max-width: 650px;
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
@@ -328,38 +328,66 @@ h1 {
 
 .modal-close:hover { color: var(--accent); }
 
-/* ===== ТОВАРИЩИ ===== */
+/* ===== ТОВАРИЩИ — ОБНОВЛЁННЫЕ СТИЛИ ===== */
 .comrade-list { padding: 1rem 1.5rem; }
 
 .comrade-card {
     display: flex;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 0.8rem 0.5rem;
     border-bottom: 1px solid var(--border);
-    transition: border 0.3s ease;
+    transition: border 0.3s ease, background 0.3s ease;
+    border-radius: 12px;
+    margin: 0 -0.5rem;
+}
+
+.comrade-card:hover {
+    background: rgba(234, 245, 224, 0.05);
+    border-radius: 12px;
 }
 
 .comrade-card:last-child { border-bottom: none; }
 
 .comrade-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--bg);
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border);
+    border: 2px solid var(--border);
     flex-shrink: 0;
-    transition: background 0.3s ease, border 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.comrade-icon i { 
-    font-size: 1.5rem; 
-    color: var(--rune); 
+.comrade-icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
-.comrade-info { flex: 1; }
+.comrade-icon i {
+    font-size: 1.6rem;
+    z-index: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.comrade-card:hover .comrade-icon {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(122, 170, 90, 0.15);
+}
+
+.comrade-info { 
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .comrade-name { 
     font-weight: 700; 
@@ -368,22 +396,26 @@ h1 {
 }
 
 .comrade-class {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.3rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.2rem;
 }
 
 .comrade-thought {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text);
     font-style: italic;
+    opacity: 0.85;
+    line-height: 1.4;
 }
 
 .comrade-thought i { 
     color: var(--accent); 
-    margin-right: 4px; 
+    margin-right: 4px;
+    opacity: 0.6;
+    font-size: 0.7rem;
 }
 
 /* ===== МОДАЛКА ТЕМ ===== */
@@ -927,109 +959,7 @@ hr {
     .theme-grid { 
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
     }
-}
-
-@media (max-width: 700px) {
-    body { padding: 1rem; }
-    h1 { font-size: 2rem; }
-    .info-panel, .content { 
-        padding-left: 1.2rem; 
-        padding-right: 1.2rem; 
-    }
-    .section-title { font-size: 1.4rem; }
-    .history-title { font-size: 1.1rem; }
-}
-/* ===== ТОВАРИЩИ — ОБНОВЛЁННЫЕ СТИЛИ ===== */
-.comrade-card {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem 0.5rem;
-    border-bottom: 1px solid var(--border);
-    transition: border 0.3s ease, background 0.3s ease;
-    border-radius: 12px;
-    margin: 0 -0.5rem;
-    padding: 0.8rem 0.5rem;
-}
-
-.comrade-card:hover {
-    background: rgba(234, 245, 224, 0.05);
-    border-radius: 12px;
-}
-
-.comrade-card:last-child { border-bottom: none; }
-
-.comrade-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--border);
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.comrade-icon::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.comrade-icon i {
-    font-size: 1.6rem;
-    z-index: 1;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.comrade-card:hover .comrade-icon {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(122, 170, 90, 0.15);
-}
-
-.comrade-info { 
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.comrade-name { 
-    font-weight: 700; 
-    font-size: 1.1rem; 
-    color: var(--text); 
-}
-
-.comrade-class {
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.2rem;
-}
-
-.comrade-thought {
-    font-size: 0.8rem;
-    color: var(--text);
-    font-style: italic;
-    opacity: 0.85;
-    line-height: 1.4;
-}
-
-.comrade-thought i { 
-    color: var(--accent); 
-    margin-right: 4px;
-    opacity: 0.6;
-    font-size: 0.7rem;
-}
-
-/* ===== АДАПТИВ ДЛЯ МОДАЛКИ ===== */
-@media (max-width: 600px) {
+    
     .modal-content {
         max-width: 95% !important;
         margin: 0.5rem;
@@ -1051,4 +981,15 @@ hr {
     .comrade-thought {
         font-size: 0.7rem;
     }
+}
+
+@media (max-width: 700px) {
+    body { padding: 1rem; }
+    h1 { font-size: 2rem; }
+    .info-panel, .content { 
+        padding-left: 1.2rem; 
+        padding-right: 1.2rem; 
+    }
+    .section-title { font-size: 1.4rem; }
+    .history-title { font-size: 1.1rem; }
 }
